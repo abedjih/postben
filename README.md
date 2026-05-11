@@ -1,0 +1,113 @@
+# WebService Tester
+
+Outil de test de webservices avec interface graphique, similaire à Postman.
+Aucune dépendance externe — fonctionne avec Python 3 stdlib uniquement.
+
+## Prérequis
+
+- Python 3.6+
+
+Vérifiez votre version :
+
+```bash
+python3 --version
+```
+
+## Installation
+
+```bash
+git clone <url-du-repo>
+cd postman
+```
+
+Ou sans git, téléchargez et décompressez l'archive, puis :
+
+```bash
+cd postman
+```
+
+C'est tout — pas de `pip install`, pas de `node_modules`.
+
+## Lancement
+
+**Au premier plan** (s'arrête à la fermeture du terminal) :
+
+```bash
+python3 app.py
+```
+
+**En arrière-plan avec `nohup`** (persiste après fermeture du terminal) :
+
+```bash
+nohup python3 app.py > logs.txt 2>&1 &
+echo $! > app.pid
+```
+
+Les logs sont écrits dans `logs.txt`. Le PID est sauvegardé dans `app.pid`.
+
+Ouvrez ensuite **http://localhost:5000** dans votre navigateur.
+
+Pour utiliser un port différent, modifiez la ligne `port = 5000` dans `app.py`.
+
+## Arrêt
+
+Si lancé au premier plan :
+
+```bash
+Ctrl+C
+```
+
+Si lancé avec `nohup` :
+
+```bash
+kill $(cat app.pid)
+```
+
+Ou sans le fichier PID :
+
+```bash
+pkill -f "python3 app.py"
+```
+
+## Consulter les logs
+
+```bash
+tail -f logs.txt
+```
+
+## Structure du projet
+
+```
+postman/
+├── app.py          # Serveur HTTP + proxy de requêtes
+├── static/
+│   └── index.html  # Interface graphique (HTML/CSS/JS)
+└── data/           # Données persistantes (créé automatiquement)
+    ├── collections.json
+    ├── history.json
+    └── environments.json
+```
+
+## Fonctionnalités
+
+### Requêtes HTTP
+- Méthodes : GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS
+- Corps : Raw/JSON, Form URL-encoded, JSON clé/valeur
+- Authentification : Bearer Token, Basic Auth
+- Paramètres et en-têtes activables/désactivables
+
+### Réponse
+- Coloration syntaxique JSON
+- Onglets Corps / En-têtes
+- Temps de réponse, taille, code HTTP
+- Copier dans le presse-papier, télécharger
+
+### Collections
+Sauvegardez vos requêtes par collection et rechargez-les en un clic depuis la barre latérale.
+
+### Historique
+Les 100 dernières requêtes sont conservées automatiquement.
+
+### Environnements
+Définissez des variables réutilisables (`{{BASE_URL}}`, `{{TOKEN}}`...) et switchez entre environnements (Local, Staging, Production).
+

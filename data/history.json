@@ -3,6 +3,21 @@
     "method": "GET",
     "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
     "status": 200,
+    "time": 611,
+    "timestamp": "2026-05-11 15:19:38",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+    "status": 200,
     "time": 451,
     "timestamp": "2026-05-11 14:10:27",
     "request": {

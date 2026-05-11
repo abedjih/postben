@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Ypareo",
+    "requests": [
+      {
+        "name": "GET sites",
+        "method": "GET",
+        "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+        "headers": [
+          {
+            "key": "X-Auth-Token",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+            "enabled": true
+          }
+        ],
+        "params": [],
+        "bodyType": "none",
+        "bodyRaw": "",
+        "bodyForm": [],
+        "auth": {
+          "type": "bearer",
+          "token": "",
+          "user": "",
+          "pass": ""
+        }
+      }
+    ]
+  }
+]

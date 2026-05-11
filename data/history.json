@@ -1,0 +1,75 @@
+[
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+    "status": 200,
+    "time": 451,
+    "timestamp": "2026-05-11 14:10:27",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+    "status": 404,
+    "time": 510,
+    "timestamp": "2026-05-11 14:09:16",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+    "status": 404,
+    "time": 568,
+    "timestamp": "2026-05-11 14:08:22",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+    "status": 404,
+    "time": 485,
+    "timestamp": "2026-05-11 14:07:51",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://jsonplaceholder.typicode.com/todos/1",
+    "status": 200,
+    "time": 185,
+    "timestamp": "2026-05-11 12:05:17",
+    "request": {
+      "method": "GET",
+      "url": "https://jsonplaceholder.typicode.com/todos/1",
+      "headers": {},
+      "body": null
+    }
+  }
+]

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebService Tester</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #1e1e2e; --bg2: #181825; --bg3: #313244;
+  --accent: #cba6f7; --accent2: #89b4fa; --accent3: #a6e3a1;
+  --red: #f38ba8; --yellow: #f9e2af; --orange: #fab387;
+  --text: #cdd6f4; --text2: #a6adc8; --text3: #6c7086;
+  --border: #45475a; --sidebar: #11111b;
+}
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; overflow: hidden; font-size: 13px; }
+
+/* TOOLBAR */
+.toolbar { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.toolbar h1 { font-size: 16px; font-weight: 700; color: var(--accent); display: flex; align-items: center; gap: 8px; }
+.toolbar h1 span { font-size: 20px; }
+.toolbar-spacer { flex: 1; }
+.btn-icon { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; transition: all .15s; }
+.btn-icon:hover { background: var(--border); }
+
+/* LAYOUT */
+.main { display: flex; flex: 1; overflow: hidden; }
+
+/* SIDEBAR */
+.sidebar { width: 240px; background: var(--sidebar); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
+.sidebar-tabs { display: flex; border-bottom: 1px solid var(--border); }
+.sidebar-tab { flex: 1; padding: 10px; text-align: center; cursor: pointer; font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: .5px; border-bottom: 2px solid transparent; transition: all .15s; }
+.sidebar-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.sidebar-content { flex: 1; overflow-y: auto; padding: 8px; }
+.sidebar-section { margin-bottom: 4px; }
+.sidebar-item { padding: 7px 10px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background .15s; color: var(--text2); font-size: 12px; }
+.sidebar-item:hover { background: var(--bg3); color: var(--text); }
+.sidebar-item .method-badge { font-size: 10px; font-weight: 700; padding: 1px 5px; border-radius: 3px; flex-shrink: 0; }
+.sidebar-item .item-url { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+.sidebar-item .item-status { font-size: 10px; margin-left: auto; flex-shrink: 0; }
+.sidebar-empty { text-align: center; color: var(--text3); padding: 24px 8px; font-size: 12px; }
+
+.collection-header { display: flex; align-items: center; gap: 6px; padding: 6px 10px; cursor: pointer; border-radius: 6px; color: var(--text2); font-size: 12px; font-weight: 600; }
+.collection-header:hover { background: var(--bg3); color: var(--text); }
+.collection-header .caret { transition: transform .15s; }
+.collection-header.open .caret { transform: rotate(90deg); }
+.collection-requests { padding-left: 12px; display: none; }
+.collection-requests.open { display: block; }
+.sidebar-item .del-btn { opacity: 0; font-size: 14px; color: var(--red); margin-left: auto; line-height: 1; }
+.sidebar-item:hover .del-btn { opacity: 1; }
+
+/* CENTER */
+.center { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+/* REQUEST BAR */
+.request-bar { padding: 12px 16px; background: var(--bg2); border-bottom: 1px solid var(--border); display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.method-select { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 10px; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 13px; min-width: 100px; }
+.method-select option { background: var(--bg2); }
+.url-input { flex: 1; background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 6px; font-size: 13px; outline: none; transition: border-color .15s; }
+.url-input:focus { border-color: var(--accent); }
+.url-input::placeholder { color: var(--text3); }
+.send-btn { background: var(--accent); color: var(--bg); padding: 8px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 13px; transition: opacity .15s; }
+.send-btn:hover { opacity: .85; }
+.send-btn:disabled { opacity: .4; cursor: not-allowed; }
+.save-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; transition: all .15s; }
+.save-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* PANELS SPLIT */
+.panels { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.req-panel { display: flex; flex-direction: column; border-bottom: 1px solid var(--border); min-height: 180px; flex-shrink: 0; }
+.res-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+/* TABS */
+.tabs { display: flex; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 16px; flex-shrink: 0; }
+.tab { padding: 10px 16px; cursor: pointer; color: var(--text2); border-bottom: 2px solid transparent; font-size: 12px; transition: all .15s; white-space: nowrap; }
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-badge { background: var(--bg3); color: var(--text2); font-size: 10px; padding: 1px 5px; border-radius: 10px; margin-left: 4px; }
+.tab-content { flex: 1; overflow: auto; padding: 12px 16px; background: var(--bg); }
+
+/* KEY-VALUE TABLE */
+.kv-table { width: 100%; border-collapse: collapse; }
+.kv-table th { text-align: left; color: var(--text3); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; padding: 4px 8px; border-bottom: 1px solid var(--border); }
+.kv-table td { padding: 3px 4px; }
+.kv-table input { background: var(--bg3); border: 1px solid transparent; color: var(--text); padding: 5px 8px; border-radius: 4px; width: 100%; font-size: 12px; outline: none; }
+.kv-table input:focus { border-color: var(--accent); }
+.kv-table input::placeholder { color: var(--text3); }
+.kv-table .del-row { background: none; border: none; color: var(--text3); cursor: pointer; font-size: 16px; padding: 0 6px; line-height: 1; }
+.kv-table .del-row:hover { color: var(--red); }
+.kv-table input[type=checkbox] { width: auto; accent-color: var(--accent); }
+.add-row-btn { margin-top: 8px; background: none; border: 1px dashed var(--border); color: var(--text3); padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; transition: all .15s; }
+.add-row-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* BODY TAB */
+.body-type-select { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.body-type-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; transition: all .15s; }
+.body-type-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 700; }
+.code-editor { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 12px; font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace; font-size: 12px; color: var(--text); min-height: 100px; outline: none; resize: vertical; width: 100%; white-space: pre; overflow: auto; line-height: 1.6; }
+.code-editor:focus { border-color: var(--accent); }
+
+/* AUTH TAB */
+.auth-type-select { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 7px 10px; border-radius: 6px; margin-bottom: 12px; font-size: 13px; }
+.auth-field { margin-bottom: 10px; }
+.auth-field label { display: block; color: var(--text2); font-size: 12px; margin-bottom: 4px; }
+.auth-field input { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 7px 10px; border-radius: 6px; width: 100%; font-size: 13px; outline: none; }
+.auth-field input:focus { border-color: var(--accent); }
+
+/* RESPONSE */
+.res-status-bar { display: flex; align-items: center; gap: 16px; padding: 10px 16px; background: var(--bg2); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.status-pill { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+.status-2xx { background: #1e3a2f; color: var(--accent3); }
+.status-3xx { background: #2d2d1e; color: var(--yellow); }
+.status-4xx { background: #3a1e1e; color: var(--red); }
+.status-5xx { background: #3a2414; color: var(--orange); }
+.status-0   { background: var(--bg3); color: var(--text2); }
+.status-meta { color: var(--text2); font-size: 12px; }
+.status-meta span { color: var(--text); font-weight: 600; }
+.res-actions { margin-left: auto; display: flex; gap: 8px; }
+.res-actions button { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; }
+.res-actions button:hover { color: var(--text); }
+.res-actions button.active { color: var(--accent); border-color: var(--accent); }
+
+/* CODE VIEWER */
+.res-body { font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace; font-size: 12px; white-space: pre-wrap; word-break: break-all; line-height: 1.7; color: var(--text); background: var(--bg); }
+.res-body .json-key    { color: var(--accent2); }
+.res-body .json-str    { color: var(--accent3); }
+.res-body .json-num    { color: var(--orange); }
+.res-body .json-bool   { color: var(--accent); }
+.res-body .json-null   { color: var(--red); }
+.res-headers-table { width: 100%; border-collapse: collapse; }
+.res-headers-table td { padding: 5px 10px; border-bottom: 1px solid var(--border); font-size: 12px; vertical-align: top; }
+.res-headers-table td:first-child { color: var(--accent2); width: 35%; font-family: monospace; }
+
+/* LOADING */
+.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-overlay { display: flex; align-items: center; gap: 10px; padding: 40px; color: var(--text2); justify-content: center; }
+
+/* PLACEHOLDER */
+.placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; color: var(--text3); gap: 8px; }
+.placeholder .icon { font-size: 48px; }
+.placeholder p { font-size: 14px; }
+
+/* MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.modal { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; min-width: 360px; max-width: 500px; }
+.modal h3 { margin-bottom: 16px; font-size: 16px; }
+.modal-field { margin-bottom: 14px; }
+.modal-field label { display: block; color: var(--text2); font-size: 12px; margin-bottom: 5px; }
+.modal-field input, .modal-field select { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 10px; border-radius: 6px; width: 100%; font-size: 13px; outline: none; }
+.modal-field input:focus { border-color: var(--accent); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.modal-actions button { padding: 8px 20px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+.btn-cancel { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); }
+.btn-confirm { background: var(--accent); border: none; color: var(--bg); font-weight: 700; }
+
+/* ENV PANEL */
+.env-bar { padding: 8px 16px; background: var(--bg2); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.env-bar label { color: var(--text2); font-size: 12px; }
+.env-select { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 5px 8px; border-radius: 6px; font-size: 12px; }
+
+/* METHOD COLORS */
+.GET    { color: #a6e3a1; } .POST   { color: #89b4fa; }
+.PUT    { color: #f9e2af; } .DELETE { color: #f38ba8; }
+.PATCH  { color: #fab387; } .HEAD   { color: #cba6f7; }
+.OPTIONS{ color: #94e2d5; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+/* RESIZER */
+.resizer { height: 4px; background: var(--border); cursor: row-resize; flex-shrink: 0; }
+.resizer:hover { background: var(--accent); }
+
+.env-tag { background: var(--bg3); border: 1px dashed var(--accent); color: var(--accent); padding: 1px 6px; border-radius: 4px; font-size: 11px; font-family: monospace; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1><span>🔌</span> WebService Tester</h1>
+  <div class="toolbar-spacer"></div>
+  <button class="btn-icon" onclick="openEnvModal()">⚙ Environnements</button>
+  <button class="btn-icon" onclick="newRequest()">+ Nouvelle requête</button>
+</div>
+
+<div class="env-bar">
+  <label>Environnement :</label>
+  <select class="env-select" id="envSelect" onchange="loadEnvVars()">
+    <option value="">-- Aucun --</option>
+  </select>
+  <span id="envVarsHint" style="color:var(--text3);font-size:11px;"></span>
+</div>
+
+<div class="main">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-tabs">
+      <div class="sidebar-tab active" onclick="showSidePanel('collections',this)">Collections</div>
+      <div class="sidebar-tab" onclick="showSidePanel('history',this)">Historique</div>
+    </div>
+    <div class="sidebar-content" id="sideContent">
+      <div id="panel-collections"></div>
+      <div id="panel-history" style="display:none"></div>
+    </div>
+  </div>
+
+  <!-- CENTER -->
+  <div class="center">
+    <!-- REQUEST BAR -->
+    <div class="request-bar">
+      <select class="method-select" id="methodSelect" onchange="updateMethodColor()">
+        <option>GET</option><option>POST</option><option>PUT</option>
+        <option>DELETE</option><option>PATCH</option><option>HEAD</option><option>OPTIONS</option>
+      </select>
+      <input class="url-input" id="urlInput" placeholder="https://api.example.com/endpoint" onkeydown="if(event.key==='Enter')sendRequest()">
+      <button class="save-btn" onclick="openSaveModal()">💾 Sauvegarder</button>
+      <button class="send-btn" id="sendBtn" onclick="sendRequest()">Envoyer</button>
+    </div>
+
+    <div class="panels" id="panels">
+      <!-- REQUEST PANEL -->
+      <div class="req-panel" id="reqPanel" style="height:260px;">
+        <div class="tabs" id="reqTabs">
+          <div class="tab active" onclick="showReqTab('params',this)">Paramètres <span class="tab-badge" id="badgeParams">0</span></div>
+          <div class="tab" onclick="showReqTab('headers',this)">En-têtes <span class="tab-badge" id="badgeHeaders">0</span></div>
+          <div class="tab" onclick="showReqTab('body',this)">Corps</div>
+          <div class="tab" onclick="showReqTab('auth',this)">Auth</div>
+        </div>
+        <div class="tab-content" id="reqTabContent"></div>
+      </div>
+
+      <!-- RESIZER -->
+      <div class="resizer" id="resizer"></div>
+
+      <!-- RESPONSE PANEL -->
+      <div class="res-panel" id="resPanel">
+        <div id="resStatusBar" style="display:none" class="res-status-bar">
+          <div class="status-pill" id="statusPill"></div>
+          <div class="status-meta">Temps: <span id="resTime">-</span> ms</div>
+          <div class="status-meta">Taille: <span id="resSize">-</span></div>
+          <div class="res-actions">
+            <button onclick="copyResponse()" title="Copier">📋 Copier</button>
+            <button id="prettyBtn" class="active" onclick="togglePretty()">Pretty</button>
+            <button onclick="downloadResponse()">⬇ Télécharger</button>
+          </div>
+        </div>
+        <div class="tabs" id="resTabs" style="display:none">
+          <div class="tab active" onclick="showResTab('body',this)">Corps</div>
+          <div class="tab" onclick="showResTab('headers',this)">En-têtes</div>
+        </div>
+        <div id="resContent" style="flex:1;overflow:auto;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SAVE -->
+<div class="modal-overlay" id="saveModal" style="display:none" onclick="if(event.target===this)closeSaveModal()">
+  <div class="modal">
+    <h3>💾 Sauvegarder la requête</h3>
+    <div class="modal-field">
+      <label>Collection</label>
+      <input id="saveCollection" placeholder="Nom de la collection" list="collectionList">
+      <datalist id="collectionList"></datalist>
+    </div>
+    <div class="modal-field">
+      <label>Nom de la requête</label>
+      <input id="saveName" placeholder="Ex: Obtenir les utilisateurs">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeSaveModal()">Annuler</button>
+      <button class="btn-confirm" onclick="saveRequest()">Sauvegarder</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ENV -->
+<div class="modal-overlay" id="envModal" style="display:none" onclick="if(event.target===this)closeEnvModal()">
+  <div class="modal" style="min-width:520px">
+    <h3>⚙ Gestion des Environnements</h3>
+    <div style="display:flex;gap:10px;margin-bottom:14px;align-items:center">
+      <select id="envEditSelect" style="flex:1;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:7px;border-radius:6px;font-size:13px" onchange="loadEnvForEdit()">
+        <option value="">-- Nouveau --</option>
+      </select>
+      <button class="btn-icon" onclick="deleteCurrentEnv()" style="color:var(--red)">Supprimer</button>
+    </div>
+    <div class="modal-field">
+      <label>Nom de l'environnement</label>
+      <input id="envName" placeholder="Production, Staging, Local...">
+    </div>
+    <div style="margin-bottom:8px;color:var(--text2);font-size:12px">Variables (clé = valeur) :</div>
+    <div id="envVarsTable"></div>
+    <button class="add-row-btn" onclick="addEnvVar()">+ Ajouter variable</button>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeEnvModal()">Fermer</button>
+      <button class="btn-confirm" onclick="saveEnv()">Sauvegarder</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── STATE ───────────────────────────────────────────────────────────────────
+const state = {
+  method: 'GET', url: '',
+  params: [], headers: [], bodyType: 'none', bodyRaw: '', bodyForm: [],
+  auth: { type: 'none', token: '', user: '', pass: '' },
+  response: null, prettyMode: true,
+  currentReqTab: 'params', currentResTab: 'body',
+  collections: [], history: [], environments: [], activeEnv: null
+};
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', async () => {
+  initResizer();
+  renderReqTab();
+  showPlaceholder();
+  await Promise.all([loadCollections(), loadHistory(), loadEnvironments()]);
+  renderSidebar();
+  updateMethodColor();
+});
+
+// ─── REQUEST ─────────────────────────────────────────────────────────────────
+async function sendRequest() {
+  const rawUrl = document.getElementById('urlInput').value.trim();
+  if (!rawUrl) { alert('Entrez une URL.'); return; }
+
+  state.method = document.getElementById('methodSelect').value;
+  state.url = applyEnvVars(rawUrl);
+
+  // Build headers object
+  const headers = {};
+  state.headers.filter(r => r.enabled && r.key).forEach(r => {
+    headers[applyEnvVars(r.key)] = applyEnvVars(r.value);
+  });
+
+  // Auth
+  if (state.auth.type === 'bearer' && state.auth.token) {
+    headers['Authorization'] = 'Bearer ' + applyEnvVars(state.auth.token);
+  } else if (state.auth.type === 'basic' && state.auth.user) {
+    headers['Authorization'] = 'Basic ' + btoa(applyEnvVars(state.auth.user) + ':' + applyEnvVars(state.auth.pass));
+  }
+
+  // URL params
+  let finalUrl = state.url;
+  const activeParams = state.params.filter(p => p.enabled && p.key);
+  if (activeParams.length) {
+    const qs = activeParams.map(p => encodeURIComponent(applyEnvVars(p.key)) + '=' + encodeURIComponent(applyEnvVars(p.value))).join('&');
+    finalUrl += (finalUrl.includes('?') ? '&' : '?') + qs;
+  }
+
+  // Body
+  let body = null;
+  if (state.bodyType === 'raw') {
+    body = state.bodyRaw;
+    if (!headers['Content-Type']) headers['Content-Type'] = 'application/json';
+  } else if (state.bodyType === 'form') {
+    body = {};
+    state.bodyForm.filter(r => r.enabled && r.key).forEach(r => { body[applyEnvVars(r.key)] = applyEnvVars(r.value); });
+    if (!headers['Content-Type']) headers['Content-Type'] = 'application/x-www-form-urlencoded';
+  } else if (state.bodyType === 'json_form') {
+    body = {};
+    state.bodyForm.filter(r => r.enabled && r.key).forEach(r => { body[applyEnvVars(r.key)] = applyEnvVars(r.value); });
+    if (!headers['Content-Type']) headers['Content-Type'] = 'application/json';
+  }
+
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = true; btn.textContent = 'Envoi...';
+  document.getElementById('resTabs').style.display = 'none';
+  document.getElementById('resStatusBar').style.display = 'none';
+  document.getElementById('resContent').innerHTML = `<div class="loading-overlay"><div class="spinner"></div> Envoi de la requête…</div>`;
+
+  try {
+    const res = await fetch('/api/request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ method: state.method, url: finalUrl, headers, body })
+    });
+    const data = await res.json();
+    state.response = data;
+    renderResponse(data);
+    await loadHistory();
+    renderSidebar();
+  } catch(e) {
+    state.response = { error: e.message, status: 0, statusText: 'Network Error', time: 0, size: 0, headers: {}, body: '' };
+    renderResponse(state.response);
+  } finally {
+    btn.disabled = false; btn.textContent = 'Envoyer';
+  }
+}
+
+// ─── RESPONSE ────────────────────────────────────────────────────────────────
+function renderResponse(data) {
+  if (data.error && !data.status) {
+    document.getElementById('resContent').innerHTML = `<div style="padding:24px;color:var(--red)">Erreur réseau : ${esc(data.error)}</div>`;
+    return;
+  }
+
+  const bar = document.getElementById('resStatusBar');
+  const pill = document.getElementById('statusPill');
+  bar.style.display = 'flex';
+  document.getElementById('resTabs').style.display = 'flex';
+
+  const s = data.status;
+  let cls = s >= 500 ? 'status-5xx' : s >= 400 ? 'status-4xx' : s >= 300 ? 'status-3xx' : s >= 200 ? 'status-2xx' : 'status-0';
+  pill.className = 'status-pill ' + cls;
+  pill.textContent = s + ' ' + (data.statusText || '');
+  document.getElementById('resTime').textContent = data.time;
+  document.getElementById('resSize').textContent = formatSize(data.size);
+
+  state.currentResTab = 'body';
+  renderResBody();
+  // activate body tab
+  document.querySelectorAll('#resTabs .tab').forEach((t,i) => t.classList.toggle('active', i===0));
+}
+
+function renderResBody() {
+  if (!state.response) return;
+  const el = document.getElementById('resContent');
+  if (state.currentResTab === 'headers') {
+    const h = state.response.headers || {};
+    let html = '<table class="res-headers-table">';
+    Object.entries(h).forEach(([k,v]) => {
+      html += `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`;
+    });
+    el.innerHTML = html + '</table>';
+    return;
+  }
+
+  const body = state.response.body || '';
+  const ct = state.response.contentType || '';
+  el.style.padding = '12px 16px';
+
+  if (state.prettyMode && (ct.includes('json') || isJson(body))) {
+    try {
+      const parsed = JSON.parse(body);
+      el.innerHTML = `<pre class="res-body">${syntaxHighlight(JSON.stringify(parsed, null, 2))}</pre>`;
+      return;
+    } catch(e) {}
+  }
+  if (state.prettyMode && ct.includes('html')) {
+    el.innerHTML = `<pre class="res-body">${esc(body)}</pre>`;
+    return;
+  }
+  el.innerHTML = `<pre class="res-body">${esc(body)}</pre>`;
+}
+
+function showResTab(tab, el) {
+  state.currentResTab = tab;
+  document.querySelectorAll('#resTabs .tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderResBody();
+}
+
+function togglePretty() {
+  state.prettyMode = !state.prettyMode;
+  document.getElementById('prettyBtn').classList.toggle('active', state.prettyMode);
+  renderResBody();
+}
+
+function copyResponse() {
+  if (state.response) navigator.clipboard.writeText(state.response.body || '');
+}
+
+function downloadResponse() {
+  if (!state.response) return;
+  const blob = new Blob([state.response.body], { type: 'text/plain' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'response.txt'; a.click();
+}
+
+function showPlaceholder() {
+  document.getElementById('resContent').innerHTML = `
+    <div class="placeholder">
+      <div class="icon">🚀</div>
+      <p>Entrez une URL et cliquez sur <strong>Envoyer</strong></p>
+    </div>`;
+}
+
+// ─── REQUEST TABS ────────────────────────────────────────────────────────────
+function showReqTab(tab, el) {
+  state.currentReqTab = tab;
+  document.querySelectorAll('#reqTabs .tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderReqTab();
+}
+
+function renderReqTab() {
+  const el = document.getElementById('reqTabContent');
+  switch(state.currentReqTab) {
+    case 'params':  el.innerHTML = renderKVTable('params'); break;
+    case 'headers': el.innerHTML = renderKVTable('headers'); break;
+    case 'body':    el.innerHTML = renderBodyTab(); break;
+    case 'auth':    el.innerHTML = renderAuthTab(); break;
+  }
+  attachKVListeners();
+  attachBodyListeners();
+  attachAuthListeners();
+  updateBadges();
+}
+
+function renderKVTable(which) {
+  const rows = state[which];
+  let html = `<table class="kv-table"><thead><tr><th style="width:24px"></th><th>Clé</th><th>Valeur</th><th></th></tr></thead><tbody>`;
+  rows.forEach((r, i) => {
+    html += `<tr>
+      <td><input type="checkbox" data-which="${which}" data-i="${i}" data-field="enabled" ${r.enabled?'checked':''}></td>
+      <td><input type="text" data-which="${which}" data-i="${i}" data-field="key" value="${esc(r.key)}" placeholder="Clé"></td>
+      <td><input type="text" data-which="${which}" data-i="${i}" data-field="value" value="${esc(r.value)}" placeholder="Valeur"></td>
+      <td><button class="del-row" data-which="${which}" data-i="${i}" onclick="delKVRow('${which}',${i})">×</button></td>
+    </tr>`;
+  });
+  html += `</tbody></table>`;
+  html += `<button class="add-row-btn" onclick="addKVRow('${which}')">+ Ajouter</button>`;
+  return html;
+}
+
+function renderBodyTab() {
+  const types = [
+    {id:'none',label:'Aucun'},{id:'raw',label:'Raw / JSON'},
+    {id:'form',label:'Form URL-encoded'},{id:'json_form',label:'JSON (clé/valeur)'}
+  ];
+  let html = `<div class="body-type-select">`;
+  types.forEach(t => {
+    html += `<button class="body-type-btn${state.bodyType===t.id?' active':''}" onclick="setBodyType('${t.id}')">${t.label}</button>`;
+  });
+  html += `</div>`;
+  if (state.bodyType === 'raw') {
+    html += `<textarea class="code-editor" id="rawBody" placeholder='{"key": "value"}'>${esc(state.bodyRaw)}</textarea>`;
+  } else if (state.bodyType === 'form' || state.bodyType === 'json_form') {
+    html += renderKVTable('bodyForm');
+  } else {
+    html += `<div style="color:var(--text3);font-size:12px;padding:8px">Aucun corps pour cette requête.</div>`;
+  }
+  return html;
+}
+
+function renderAuthTab() {
+  let html = `<div class="auth-field"><label>Type</label>
+    <select class="auth-type-select" id="authType" onchange="setAuthType(this.value)">
+      <option value="none" ${state.auth.type==='none'?'selected':''}>Aucune</option>
+      <option value="bearer" ${state.auth.type==='bearer'?'selected':''}>Bearer Token</option>
+      <option value="basic" ${state.auth.type==='basic'?'selected':''}>Basic Auth</option>
+    </select></div>`;
+  if (state.auth.type === 'bearer') {
+    html += `<div class="auth-field"><label>Token</label><input id="authToken" type="text" value="${esc(state.auth.token)}" placeholder="Votre token JWT..." oninput="state.auth.token=this.value"></div>`;
+  } else if (state.auth.type === 'basic') {
+    html += `<div class="auth-field"><label>Utilisateur</label><input id="authUser" type="text" value="${esc(state.auth.user)}" oninput="state.auth.user=this.value"></div>`;
+    html += `<div class="auth-field"><label>Mot de passe</label><input id="authPass" type="password" value="${esc(state.auth.pass)}" oninput="state.auth.pass=this.value"></div>`;
+  }
+  return html;
+}
+
+function setBodyType(t) { state.bodyType = t; if(t!=='none'&&t!=='raw') state.bodyForm=[{key:'',value:'',enabled:true}]; renderReqTab(); }
+function setAuthType(t) { state.auth.type = t; renderReqTab(); }
+
+function addKVRow(which) {
+  state[which].push({key:'',value:'',enabled:true}); renderReqTab();
+}
+function delKVRow(which, i) {
+  state[which].splice(i,1); renderReqTab();
+}
+
+function attachKVListeners() {
+  document.querySelectorAll('[data-which][data-i][data-field]').forEach(input => {
+    const {which, i, field} = input.dataset;
+    input.addEventListener('input', () => {
+      state[which][+i][field] = input.type === 'checkbox' ? input.checked : input.value;
+      updateBadges();
+    });
+    input.addEventListener('change', () => {
+      if (input.type === 'checkbox') state[which][+i][field] = input.checked;
+      updateBadges();
+    });
+  });
+}
+
+function attachBodyListeners() {
+  const raw = document.getElementById('rawBody');
+  if (raw) raw.addEventListener('input', () => { state.bodyRaw = raw.value; });
+}
+
+function attachAuthListeners() {}
+
+function updateBadges() {
+  document.getElementById('badgeParams').textContent = state.params.filter(r=>r.enabled&&r.key).length;
+  document.getElementById('badgeHeaders').textContent = state.headers.filter(r=>r.enabled&&r.key).length;
+}
+
+// ─── COLLECTIONS / HISTORY ───────────────────────────────────────────────────
+async function loadCollections() {
+  const r = await fetch('/api/collections');
+  state.collections = await r.json();
+  populateSaveModal();
+}
+async function loadHistory() {
+  const r = await fetch('/api/history');
+  state.history = await r.json();
+}
+
+function renderSidebar() {
+  renderCollections();
+  renderHistory();
+}
+
+function renderCollections() {
+  const el = document.getElementById('panel-collections');
+  if (!state.collections.length) { el.innerHTML = `<div class="sidebar-empty">Aucune collection<br><small>Sauvegardez des requêtes pour les retrouver ici</small></div>`; return; }
+  let html = '';
+  // group by collection name
+  const groups = {};
+  state.collections.forEach(col => {
+    const name = col.name;
+    if (!groups[name]) groups[name] = col;
+  });
+  Object.entries(groups).forEach(([name, col]) => {
+    html += `<div class="sidebar-section">
+      <div class="collection-header" onclick="toggleCollection(this)">
+        <span class="caret">▶</span> 📁 ${esc(name)}
+      </div>
+      <div class="collection-requests">`;
+    (col.requests||[]).forEach((req, i) => {
+      html += `<div class="sidebar-item" onclick="loadRequest(${JSON.stringify(col.name).replace(/</g,'&lt;')},${i})">
+        <span class="method-badge ${req.method}">${req.method}</span>
+        <span class="item-url">${esc(req.name||req.url)}</span>
+        <span class="del-btn" onclick="event.stopPropagation();deleteRequest('${esc(col.name)}',${i})">×</span>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  el.innerHTML = html;
+}
+
+function renderHistory() {
+  const el = document.getElementById('panel-history');
+  if (!state.history.length) { el.innerHTML = `<div class="sidebar-empty">Aucun historique</div>`; return; }
+  let html = `<div style="display:flex;justify-content:flex-end;padding:4px 0"><button style="background:none;border:none;color:var(--red);cursor:pointer;font-size:11px" onclick="clearHistory()">🗑 Effacer</button></div>`;
+  state.history.slice(0,50).forEach((h, i) => {
+    const cls = h.status>=500?'status-5xx':h.status>=400?'status-4xx':h.status>=200?'status-2xx':'status-0';
+    html += `<div class="sidebar-item" onclick="loadHistoryItem(${i})">
+      <span class="method-badge ${h.method}">${h.method}</span>
+      <span class="item-url">${esc(h.url)}</span>
+      <span class="item-status ${cls}">${h.status||'?'}</span>
+    </div>`;
+  });
+  el.innerHTML = html;
+}
+
+function showSidePanel(panel, tab) {
+  document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  document.getElementById('panel-collections').style.display = panel==='collections'?'':'none';
+  document.getElementById('panel-history').style.display = panel==='history'?'':'none';
+}
+
+function toggleCollection(el) {
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+
+function loadHistoryItem(i) {
+  const h = state.history[i];
+  if (!h || !h.request) return;
+  const req = h.request;
+  document.getElementById('methodSelect').value = h.method;
+  document.getElementById('urlInput').value = req.url||h.url;
+  state.method = h.method;
+  state.headers = Object.entries(req.headers||{}).map(([k,v])=>({key:k,value:v,enabled:true}));
+  state.params = [];
+  if (typeof req.body === 'string') { state.bodyType = 'raw'; state.bodyRaw = req.body; }
+  else if (req.body && typeof req.body === 'object') { state.bodyType = 'json_form'; state.bodyForm = Object.entries(req.body).map(([k,v])=>({key:k,value:''+v,enabled:true})); }
+  else { state.bodyType = 'none'; state.bodyRaw = ''; }
+  renderReqTab();
+  updateMethodColor();
+}
+
+function loadRequest(colName, idx) {
+  const col = state.collections.find(c=>c.name===colName);
+  if (!col) return;
+  const req = col.requests[idx];
+  document.getElementById('methodSelect').value = req.method;
+  document.getElementById('urlInput').value = req.url;
+  state.method = req.method;
+  state.headers = (req.headers||[]);
+  state.params = (req.params||[]);
+  state.bodyType = req.bodyType||'none';
+  state.bodyRaw = req.bodyRaw||'';
+  state.bodyForm = req.bodyForm||[];
+  state.auth = req.auth||{type:'none',token:'',user:'',pass:''};
+  renderReqTab();
+  updateMethodColor();
+}
+
+async function deleteRequest(colName, idx) {
+  const col = state.collections.find(c=>c.name===colName);
+  if (!col) return;
+  col.requests.splice(idx,1);
+  await fetch('/api/collections/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(col)});
+  await loadCollections();
+  renderSidebar();
+}
+
+async function clearHistory() {
+  await fetch('/api/history/clear',{method:'POST'});
+  state.history = [];
+  renderSidebar();
+}
+
+// ─── SAVE REQUEST ─────────────────────────────────────────────────────────────
+function openSaveModal() {
+  const url = document.getElementById('urlInput').value;
+  const method = document.getElementById('methodSelect').value;
+  document.getElementById('saveName').value = method + ' ' + (url.split('/').pop()||url).split('?')[0];
+  document.getElementById('saveModal').style.display = 'flex';
+  document.getElementById('saveName').focus();
+}
+function closeSaveModal() { document.getElementById('saveModal').style.display = 'none'; }
+
+function populateSaveModal() {
+  const dl = document.getElementById('collectionList');
+  dl.innerHTML = state.collections.map(c=>`<option value="${esc(c.name)}">`).join('');
+}
+
+async function saveRequest() {
+  const colName = document.getElementById('saveCollection').value.trim() || 'Ma Collection';
+  const name = document.getElementById('saveName').value.trim() || document.getElementById('urlInput').value;
+  const method = document.getElementById('methodSelect').value;
+  const url = document.getElementById('urlInput').value;
+
+  let col = state.collections.find(c=>c.name===colName) || { name: colName, requests: [] };
+  col.requests.push({ name, method, url, headers: state.headers, params: state.params, bodyType: state.bodyType, bodyRaw: state.bodyRaw, bodyForm: state.bodyForm, auth: state.auth });
+
+  await fetch('/api/collections/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(col)});
+  await loadCollections();
+  renderSidebar();
+  closeSaveModal();
+}
+
+// ─── ENVIRONMENTS ─────────────────────────────────────────────────────────────
+async function loadEnvironments() {
+  const r = await fetch('/api/environments');
+  state.environments = await r.json();
+  const sel = document.getElementById('envSelect');
+  const editSel = document.getElementById('envEditSelect');
+  [sel, editSel].forEach(s => {
+    const cur = s.value;
+    while (s.options.length > 1) s.remove(1);
+    state.environments.forEach(e => s.add(new Option(e.name, e.name)));
+    if (cur) s.value = cur;
+  });
+}
+
+function loadEnvVars() {
+  const name = document.getElementById('envSelect').value;
+  state.activeEnv = state.environments.find(e=>e.name===name)||null;
+  const hint = document.getElementById('envVarsHint');
+  hint.textContent = state.activeEnv ? `${(state.activeEnv.vars||[]).length} variable(s) active` : '';
+}
+
+function applyEnvVars(str) {
+  if (!state.activeEnv || !state.activeEnv.vars) return str;
+  let result = str;
+  state.activeEnv.vars.forEach(v => {
+    if (v.key) result = result.replace(new RegExp('\\{\\{'+v.key+'\\}\\}','g'), v.value||'');
+  });
+  return result;
+}
+
+function openEnvModal() {
+  loadEnvironments();
+  renderEnvVarsTable();
+  document.getElementById('envModal').style.display = 'flex';
+}
+function closeEnvModal() { document.getElementById('envModal').style.display = 'none'; }
+
+function loadEnvForEdit() {
+  const name = document.getElementById('envEditSelect').value;
+  const env = state.environments.find(e=>e.name===name);
+  document.getElementById('envName').value = name || '';
+  renderEnvVarsTable(env ? env.vars : []);
+}
+
+function renderEnvVarsTable(vars) {
+  const rows = vars||[];
+  let html = `<table class="kv-table"><thead><tr><th>Clé</th><th>Valeur</th><th></th></tr></thead><tbody>`;
+  rows.forEach((v,i) => {
+    html += `<tr>
+      <td><input type="text" id="envKey_${i}" value="${esc(v.key)}" placeholder="BASE_URL"></td>
+      <td><input type="text" id="envVal_${i}" value="${esc(v.value)}" placeholder="https://api.example.com"></td>
+      <td><button class="del-row" onclick="delEnvVar(${i})">×</button></td>
+    </tr>`;
+  });
+  html += `</tbody></table>`;
+  document.getElementById('envVarsTable').innerHTML = html;
+  document.getElementById('envVarsTable').dataset.count = rows.length;
+}
+
+function addEnvVar() {
+  const count = +document.getElementById('envVarsTable').dataset.count||0;
+  const rows = [];
+  for(let i=0;i<count;i++){
+    const k=document.getElementById(`envKey_${i}`), v=document.getElementById(`envVal_${i}`);
+    if(k&&v) rows.push({key:k.value,value:v.value});
+  }
+  rows.push({key:'',value:''});
+  renderEnvVarsTable(rows);
+}
+
+function delEnvVar(idx) {
+  const count = +document.getElementById('envVarsTable').dataset.count||0;
+  const rows = [];
+  for(let i=0;i<count;i++){
+    const k=document.getElementById(`envKey_${i}`), v=document.getElementById(`envVal_${i}`);
+    if(k&&v&&i!==idx) rows.push({key:k.value,value:v.value});
+  }
+  renderEnvVarsTable(rows);
+}
+
+async function saveEnv() {
+  const name = document.getElementById('envName').value.trim();
+  if (!name) { alert('Entrez un nom.'); return; }
+  const count = +document.getElementById('envVarsTable').dataset.count||0;
+  const vars = [];
+  for(let i=0;i<count;i++){
+    const k=document.getElementById(`envKey_${i}`), v=document.getElementById(`envVal_${i}`);
+    if(k&&v&&k.value) vars.push({key:k.value,value:v.value});
+  }
+  await fetch('/api/environments/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,vars})});
+  await loadEnvironments();
+}
+
+async function deleteCurrentEnv() {
+  const name = document.getElementById('envEditSelect').value;
+  if (!name) return;
+  await fetch('/api/environments/'+encodeURIComponent(name),{method:'DELETE'});
+  await loadEnvironments();
+  document.getElementById('envName').value = '';
+  renderEnvVarsTable([]);
+}
+
+// ─── MISC UTILS ──────────────────────────────────────────────────────────────
+function updateMethodColor() {
+  const s = document.getElementById('methodSelect');
+  s.style.color = getMethodColor(s.value);
+}
+
+function getMethodColor(m) {
+  return {GET:'#a6e3a1',POST:'#89b4fa',PUT:'#f9e2af',DELETE:'#f38ba8',PATCH:'#fab387',HEAD:'#cba6f7',OPTIONS:'#94e2d5'}[m]||'#cdd6f4';
+}
+
+function newRequest() {
+  document.getElementById('urlInput').value = '';
+  document.getElementById('methodSelect').value = 'GET';
+  state.params=[]; state.headers=[]; state.bodyType='none'; state.bodyRaw=''; state.bodyForm=[];
+  state.auth={type:'none',token:'',user:'',pass:''};
+  renderReqTab(); showPlaceholder();
+  document.getElementById('resStatusBar').style.display='none';
+  document.getElementById('resTabs').style.display='none';
+  updateMethodColor();
+}
+
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function isJson(s) { try { JSON.parse(s); return true; } catch(e) { return false; } }
+function formatSize(b) { return b<1024?b+' B':b<1048576?(b/1024).toFixed(1)+' KB':(b/1048576).toFixed(1)+' MB'; }
+
+function syntaxHighlight(json) {
+  return esc(json).replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, match => {
+    let cls = 'json-num';
+    if (/^"/.test(match)) cls = /:$/.test(match) ? 'json-key' : 'json-str';
+    else if (/true|false/.test(match)) cls = 'json-bool';
+    else if (/null/.test(match)) cls = 'json-null';
+    return `<span class="${cls}">${match}</span>`;
+  });
+}
+
+// ─── RESIZER ─────────────────────────────────────────────────────────────────
+function initResizer() {
+  const resizer = document.getElementById('resizer');
+  const reqPanel = document.getElementById('reqPanel');
+  let dragging = false, startY, startH;
+  resizer.addEventListener('mousedown', e => {
+    dragging = true; startY = e.clientY; startH = reqPanel.offsetHeight;
+    document.body.style.userSelect = 'none';
+  });
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const newH = Math.min(Math.max(startH + (e.clientY - startY), 100), window.innerHeight * 0.7);
+    reqPanel.style.height = newH + 'px';
+  });
+  document.addEventListener('mouseup', () => { dragging = false; document.body.style.userSelect = ''; });
+}
+</script>
+</body>
+</html>

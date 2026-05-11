@@ -75,14 +75,66 @@ pkill -f "python3 app.py"
 tail -f logs.txt
 ```
 
+## Docker
+
+### Prérequis
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/) (inclus avec Docker Desktop)
+
+### Lancement avec Docker Compose (recommandé)
+
+```bash
+docker compose up -d
+```
+
+L'interface est disponible sur **http://localhost:5000**.  
+Les données (collections, historique, environnements) sont persistées dans le dossier `./data` de la machine hôte.
+
+### Arrêt
+
+```bash
+docker compose down
+```
+
+### Logs
+
+```bash
+docker compose logs -f
+```
+
+### Changer le port
+
+Modifiez le mapping dans `docker-compose.yml` :
+
+```yaml
+ports:
+  - "8080:5000"   # accessible sur http://localhost:8080
+```
+
+### Sans Docker Compose
+
+```bash
+# Build
+docker build -t wstester .
+
+# Lancement
+docker run -d -p 5000:5000 -v $(pwd)/data:/app/data --name wstester wstester
+
+# Arrêt
+docker stop wstester && docker rm wstester
+```
+
 ## Structure du projet
 
 ```
 postman/
-├── app.py          # Serveur HTTP + proxy de requêtes
+├── app.py               # Serveur HTTP + proxy de requêtes
+├── Dockerfile
+├── docker-compose.yml
 ├── static/
-│   └── index.html  # Interface graphique (HTML/CSS/JS)
-└── data/           # Données persistantes (créé automatiquement)
+│   └── index.html       # Interface graphique (HTML/CSS/JS)
+└── data/                # Données persistantes (créé automatiquement)
     ├── collections.json
     ├── history.json
     └── environments.json

@@ -9,7 +9,12 @@
       "Bash(curl -s http://localhost:5000/)",
       "Bash(curl -s -X POST http://localhost:5000/api/request -H 'Content-Type: application/json' -d '{\"method\":\"GET\",\"url\":\"https://jsonplaceholder.typicode.com/todos/1\",\"headers\":{},\"body\":null}')",
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('Status:', d['status'], '|', 'Time:', d['time'], 'ms | Body:', d['body'][:80]\\)\")",
-      "Bash(pkill -f \"python3 app.py\")"
+      "Bash(pkill -f \"python3 app.py\")",
+      "Bash(python3 *)",
+      "Bash(docker compose up *)",
+      "Bash(apt-get install *)",
+      "Bash(sudo apt-get install -y libasound2)",
+      "Bash(node *)"
     ]
   }
 }

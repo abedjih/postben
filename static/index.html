@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WebService Tester</title>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -42,12 +43,17 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); co
 
 .collection-header { display: flex; align-items: center; gap: 6px; padding: 6px 10px; cursor: pointer; border-radius: 6px; color: var(--text2); font-size: 12px; font-weight: 600; }
 .collection-header:hover { background: var(--bg3); color: var(--text); }
+.col-actions { margin-left: auto; display: flex; gap: 2px; opacity: 0; pointer-events: none; transition: opacity .15s; }
+.collection-header:hover .col-actions { opacity: 1; pointer-events: auto; }
+.col-action-btn { background: none; border: none; cursor: pointer; font-size: 13px; padding: 1px 4px; border-radius: 4px; color: var(--text2); line-height: 1; }
+.col-action-btn:hover { background: var(--border); color: var(--text); }
+.col-del-btn:hover { color: var(--red); }
 .collection-header .caret { transition: transform .15s; }
 .collection-header.open .caret { transform: rotate(90deg); }
 .collection-requests { padding-left: 12px; display: none; }
 .collection-requests.open { display: block; }
-.sidebar-item .del-btn { opacity: 0; font-size: 14px; color: var(--red); margin-left: auto; line-height: 1; }
-.sidebar-item:hover .del-btn { opacity: 1; }
+.sidebar-item .del-btn { opacity: 0; pointer-events: none; font-size: 14px; color: var(--red); margin-left: auto; line-height: 1; }
+.sidebar-item:hover .del-btn { opacity: 1; pointer-events: auto; }
 
 /* CENTER */
 .center { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
@@ -119,6 +125,40 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); co
 .res-actions button { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; }
 .res-actions button:hover { color: var(--text); }
 .res-actions button.active { color: var(--accent); border-color: var(--accent); }
+
+/* FILTER BAR */
+.res-filter { display: flex; align-items: center; gap: 6px; padding: 6px 16px; background: var(--bg2); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.res-filter label { color: var(--text3); font-size: 11px; white-space: nowrap; }
+.res-filter input { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 4px 8px; border-radius: 6px; font-size: 12px; outline: none; transition: border-color .15s; }
+.res-filter input:focus { border-color: var(--accent); }
+.res-filter input::placeholder { color: var(--text3); }
+.res-filter input.filter-attr { width: 140px; }
+.res-filter input.filter-val  { width: 120px; }
+.res-filter .filter-count { color: var(--text3); font-size: 11px; white-space: nowrap; }
+.res-filter .filter-count.has-matches { color: var(--accent3); }
+.res-filter .filter-count.no-matches  { color: var(--red); }
+.btn-filter-apply { background: var(--accent); border: none; color: var(--bg); padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 700; transition: opacity .15s; }
+.btn-filter-apply:hover { opacity: .85; }
+.btn-filter-clear { background: none; border: none; color: var(--text3); cursor: pointer; font-size: 16px; padding: 0 2px; }
+.btn-filter-clear:hover { color: var(--red); }
+.filter-results-header { display: flex; align-items: center; gap: 8px; padding: 6px 16px; background: var(--bg2); border-bottom: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--accent); flex-shrink: 0; }
+.filter-results-header span { flex: 1; }
+.btn-filter-close { background: none; border: none; color: var(--text3); cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; }
+.btn-filter-close:hover { color: var(--red); }
+
+/* SEARCH BAR */
+.res-search { display: flex; align-items: center; gap: 6px; padding: 6px 16px; background: var(--bg2); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.res-search input { flex: 1; background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 5px 10px; border-radius: 6px; font-size: 12px; outline: none; transition: border-color .15s; }
+.res-search input:focus { border-color: var(--accent); }
+.res-search input::placeholder { color: var(--text3); }
+.res-search .match-count { color: var(--text3); font-size: 11px; white-space: nowrap; }
+.res-search .match-count.has-matches { color: var(--accent3); }
+.res-search .match-count.no-matches { color: var(--red); }
+.search-nav { display: flex; gap: 2px; }
+.search-nav button { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 3px 8px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+.search-nav button:hover { color: var(--text); }
+mark.search-hit { background: #f9e2af44; color: var(--yellow); border-radius: 2px; }
+mark.search-hit.current { background: var(--yellow); color: var(--bg); }
 
 /* CODE VIEWER */
 .res-body { font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace; font-size: 12px; white-space: pre-wrap; word-break: break-all; line-height: 1.7; color: var(--text); background: var(--bg); }
@@ -245,14 +285,44 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); co
           <div class="res-actions">
             <button onclick="copyResponse()" title="Copier">📋 Copier</button>
             <button id="prettyBtn" class="active" onclick="togglePretty()">Pretty</button>
+            <button id="filterToggleBtn" onclick="toggleFilter()">🔽 Filtrer</button>
+            <button id="searchToggleBtn" onclick="toggleSearch()">🔍 Rechercher</button>
             <button onclick="downloadResponse()">⬇ Télécharger</button>
+            <button onclick="exportExcel()" title="Exporter en Excel">📊 Excel</button>
           </div>
         </div>
         <div class="tabs" id="resTabs" style="display:none">
           <div class="tab active" onclick="showResTab('body',this)">Corps</div>
           <div class="tab" onclick="showResTab('headers',this)">En-têtes</div>
         </div>
-        <div id="resContent" style="flex:1;overflow:auto;"></div>
+        <div id="resFilterBar" class="res-filter" style="display:none">
+          <label>🔽 Filtrer :</label>
+          <input class="filter-attr" id="filterAttr" placeholder="attribut (ex: numeroAnnee ou matieres.codeMatiere)" onkeydown="if(event.key==='Enter')applyFilter()" style="width:260px">
+          <span style="color:var(--text3);font-size:12px">=</span>
+          <input class="filter-val" id="filterVal" placeholder="valeur (ex: 1)" onkeydown="if(event.key==='Enter')applyFilter()">
+          <button class="btn-filter-apply" onclick="applyFilter()">Appliquer</button>
+          <span class="filter-count" id="filterCount"></span>
+          <button class="btn-filter-clear" onclick="clearFilter()" title="Effacer le filtre">×</button>
+        </div>
+        <div id="resSearchBar" class="res-search" style="display:none">
+          <input id="resSearchInput" placeholder="Rechercher dans la réponse…" oninput="onSearchInput()" onkeydown="onSearchKey(event)">
+          <span class="match-count" id="matchCount"></span>
+          <div class="search-nav">
+            <button onclick="searchNav(-1)" title="Précédent">▲</button>
+            <button onclick="searchNav(1)" title="Suivant">▼</button>
+          </div>
+          <button style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:16px;padding:0 2px" onclick="clearSearch()" title="Effacer">×</button>
+        </div>
+        <div id="resSplitContainer" style="flex:1;display:flex;overflow:hidden;">
+          <div id="resContent" style="flex:1;overflow:auto;"></div>
+          <div id="filterResultsPanel" style="display:none;flex:1;flex-direction:column;overflow:hidden;border-left:2px solid var(--accent);">
+            <div class="filter-results-header">
+              <span id="filterResultsTitle">Résultats filtrés</span>
+              <button class="btn-filter-close" onclick="closeFilterResults()" title="Fermer">×</button>
+            </div>
+            <div id="filterResultsContent" style="flex:1;overflow:auto;padding:12px 16px;font-family:'Cascadia Code','Fira Code','Consolas',monospace;font-size:12px;white-space:pre-wrap;word-break:break-all;line-height:1.7;"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -302,6 +372,21 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); co
   </div>
 </div>
 
+<!-- MODAL RENAME COLLECTION -->
+<div class="modal-overlay" id="renameColModal" style="display:none" onclick="if(event.target===this)closeRenameCollection()">
+  <div class="modal">
+    <h3>✏ Renommer la collection</h3>
+    <div class="modal-field">
+      <label>Nouveau nom</label>
+      <input id="renameColInput" placeholder="Nom de la collection" onkeydown="if(event.key==='Enter')confirmRenameCollection()">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeRenameCollection()">Annuler</button>
+      <button class="btn-confirm" onclick="confirmRenameCollection()">Renommer</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ─── STATE ───────────────────────────────────────────────────────────────────
 const state = {
@@ -310,7 +395,9 @@ const state = {
   auth: { type: 'none', token: '', user: '', pass: '' },
   response: null, prettyMode: true,
   currentReqTab: 'params', currentResTab: 'body',
-  collections: [], history: [], environments: [], activeEnv: null
+  collections: [], history: [], environments: [], activeEnv: null,
+  search: { open: false, query: '', currentIdx: 0, totalMatches: 0 },
+  filter: { open: false, attr: '', value: '' }
 };
 
 // ─── INIT ────────────────────────────────────────────────────────────────────
@@ -371,6 +458,13 @@ async function sendRequest() {
   btn.disabled = true; btn.textContent = 'Envoi...';
   document.getElementById('resTabs').style.display = 'none';
   document.getElementById('resStatusBar').style.display = 'none';
+  document.getElementById('resSearchBar').style.display = 'none';
+  document.getElementById('resFilterBar').style.display = 'none';
+  document.getElementById('filterResultsPanel').style.display = 'none';
+  document.getElementById('searchToggleBtn').classList.remove('active');
+  document.getElementById('filterToggleBtn').classList.remove('active');
+  state.search.open = false; state.search.query = '';
+  state.filter.open = false; state.filter.attr = ''; state.filter.value = '';
   document.getElementById('resContent').innerHTML = `<div class="loading-overlay"><div class="spinner"></div> Envoi de la requête…</div>`;
 
   try {
@@ -403,6 +497,7 @@ function renderResponse(data) {
   const pill = document.getElementById('statusPill');
   bar.style.display = 'flex';
   document.getElementById('resTabs').style.display = 'flex';
+  document.getElementById('resFilterBar').style.display = 'flex';
 
   const s = data.status;
   let cls = s >= 500 ? 'status-5xx' : s >= 400 ? 'status-4xx' : s >= 300 ? 'status-3xx' : s >= 200 ? 'status-2xx' : 'status-0';
@@ -419,6 +514,10 @@ function renderResponse(data) {
 
 function renderResBody() {
   if (!state.response) return;
+  if (state.search.open && state.search.query && state.currentResTab === 'body') {
+    renderResBodyWithSearch(state.search.query);
+    return;
+  }
   const el = document.getElementById('resContent');
   if (state.currentResTab === 'headers') {
     const h = state.response.headers || {};
@@ -469,6 +568,37 @@ function downloadResponse() {
   if (!state.response) return;
   const blob = new Blob([state.response.body], { type: 'text/plain' });
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'response.txt'; a.click();
+}
+
+function exportExcel() {
+  if (!state.response || !state.response.body) return;
+  if (typeof XLSX === 'undefined') { alert('Librairie Excel non chargée. Vérifiez votre connexion internet.'); return; }
+
+  const body = state.response.body;
+  let rows;
+  try {
+    const parsed = JSON.parse(body);
+    if (Array.isArray(parsed)) {
+      rows = parsed.map(item =>
+        typeof item === 'object' && item !== null
+          ? Object.fromEntries(Object.entries(item).map(([k,v]) => [k, typeof v === 'object' ? JSON.stringify(v) : v]))
+          : { Valeur: item }
+      );
+    } else if (typeof parsed === 'object' && parsed !== null) {
+      rows = Object.entries(parsed).map(([k, v]) => ({ Clé: k, Valeur: typeof v === 'object' ? JSON.stringify(v) : v }));
+    } else {
+      rows = [{ Valeur: parsed }];
+    }
+  } catch(e) {
+    rows = body.split('\n').map(line => ({ Contenu: line }));
+  }
+
+  const ws = XLSX.utils.json_to_sheet(rows);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Réponse');
+  const urlParts = (state.url || 'response').split('/').filter(Boolean);
+  const fname = ((urlParts[urlParts.length - 1] || 'response').split('?')[0] || 'response');
+  XLSX.writeFile(wb, fname + '.xlsx');
 }
 
 function showPlaceholder() {
@@ -619,13 +749,17 @@ function renderCollections() {
     html += `<div class="sidebar-section">
       <div class="collection-header" onclick="toggleCollection(this)">
         <span class="caret">▶</span> 📁 ${esc(name)}
+        <span class="col-actions">
+          <button class="col-action-btn" title="Renommer" onclick="event.stopPropagation();openRenameCollection('${esc(name)}')">✏</button>
+          <button class="col-action-btn col-del-btn" title="Supprimer" onclick="event.stopPropagation();deleteCollection('${esc(name)}')">🗑</button>
+        </span>
       </div>
       <div class="collection-requests">`;
     (col.requests||[]).forEach((req, i) => {
-      html += `<div class="sidebar-item" onclick="loadRequest(${JSON.stringify(col.name).replace(/</g,'&lt;')},${i})">
+      html += `<div class="sidebar-item" data-col="${esc(col.name)}" data-idx="${i}" onclick="loadRequest(this.dataset.col,+this.dataset.idx)">
         <span class="method-badge ${req.method}">${req.method}</span>
         <span class="item-url">${esc(req.name||req.url)}</span>
-        <span class="del-btn" onclick="event.stopPropagation();deleteRequest('${esc(col.name)}',${i})">×</span>
+        <span class="del-btn" data-col="${esc(col.name)}" data-idx="${i}" onclick="event.stopPropagation();deleteRequest(this.dataset.col,+this.dataset.idx)">×</span>
       </div>`;
     });
     html += `</div></div>`;
@@ -691,6 +825,7 @@ function loadRequest(colName, idx) {
   state.auth = req.auth||{type:'none',token:'',user:'',pass:''};
   renderReqTab();
   updateMethodColor();
+  sendRequest();
 }
 
 async function deleteRequest(colName, idx) {
@@ -736,6 +871,42 @@ async function saveRequest() {
   await loadCollections();
   renderSidebar();
   closeSaveModal();
+}
+
+// ─── COLLECTION RENAME / DELETE ──────────────────────────────────────────────
+let _renameColOldName = '';
+
+function openRenameCollection(name) {
+  _renameColOldName = name;
+  document.getElementById('renameColInput').value = name;
+  document.getElementById('renameColModal').style.display = 'flex';
+  setTimeout(() => {
+    const input = document.getElementById('renameColInput');
+    input.focus(); input.select();
+  }, 50);
+}
+
+function closeRenameCollection() {
+  document.getElementById('renameColModal').style.display = 'none';
+}
+
+async function confirmRenameCollection() {
+  const newName = document.getElementById('renameColInput').value.trim();
+  if (!newName || newName === _renameColOldName) { closeRenameCollection(); return; }
+  const col = state.collections.find(c => c.name === _renameColOldName);
+  if (!col) { closeRenameCollection(); return; }
+  await fetch('/api/collections/' + encodeURIComponent(_renameColOldName), { method: 'DELETE' });
+  await fetch('/api/collections/save', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({...col, name: newName}) });
+  await loadCollections();
+  renderSidebar();
+  closeRenameCollection();
+}
+
+async function deleteCollection(name) {
+  if (!confirm(`Supprimer la collection "${name}" et toutes ses requêtes ?`)) return;
+  await fetch('/api/collections/' + encodeURIComponent(name), { method: 'DELETE' });
+  await loadCollections();
+  renderSidebar();
 }
 
 // ─── ENVIRONMENTS ─────────────────────────────────────────────────────────────
@@ -858,6 +1029,8 @@ function newRequest() {
   renderReqTab(); showPlaceholder();
   document.getElementById('resStatusBar').style.display='none';
   document.getElementById('resTabs').style.display='none';
+  document.getElementById('resFilterBar').style.display='none';
+  document.getElementById('filterResultsPanel').style.display='none';
   updateMethodColor();
 }
 
@@ -874,6 +1047,233 @@ function syntaxHighlight(json) {
     return `<span class="${cls}">${match}</span>`;
   });
 }
+
+// ─── FILTER ──────────────────────────────────────────────────────────────────
+function toggleFilter() {
+  state.filter.open = !state.filter.open;
+  const btn = document.getElementById('filterToggleBtn');
+  btn.classList.toggle('active', state.filter.open);
+  if (!state.filter.open) {
+    state.filter.attr = ''; state.filter.value = '';
+    document.getElementById('filterAttr').value = '';
+    document.getElementById('filterVal').value = '';
+    updateFilterCount(null);
+    renderResBody();
+  } else {
+    document.getElementById('filterAttr').focus();
+  }
+}
+
+function applyFilter() {
+  const attr  = document.getElementById('filterAttr').value.trim();
+  const value = document.getElementById('filterVal').value.trim();
+
+  if (!attr || value === '') {
+    document.getElementById('filterCount').textContent = '';
+    document.getElementById('filterCount').className = 'filter-count';
+    return;
+  }
+
+  if (!state.response || !state.response.body) return;
+
+  let parsed;
+  try { parsed = JSON.parse(state.response.body); }
+  catch(e) {
+    document.getElementById('filterCount').textContent = 'Réponse non JSON';
+    document.getElementById('filterCount').className = 'filter-count no-matches';
+    return;
+  }
+
+  // Navigate a dot-path and check if any leaf matches value
+  // e.g. parts=["matieres","codeMatiere"] checks item.matieres[*].codeMatiere == value
+  function matchesPath(item, parts, value) {
+    if (typeof item !== 'object' || item === null) return false;
+    const [head, ...rest] = parts;
+    const child = item[head];
+    if (child === undefined || child === null) return false;
+    if (rest.length === 0) {
+      return child == value || String(child) === String(value);
+    }
+    if (Array.isArray(child)) {
+      return child.some(sub => matchesPath(sub, rest, value));
+    }
+    if (typeof child === 'object') {
+      return matchesPath(child, rest, value);
+    }
+    return false;
+  }
+
+  const parts = attr.split('.');
+  const filterArray = arr => arr.filter(item => {
+    if (typeof item !== 'object' || item === null) return false;
+    return matchesPath(item, parts, value);
+  });
+
+  // Resolve the source array to filter:
+  // 1. Direct JSON array
+  // 2. Object with numeric string keys {"0":{...},"1":{...}} → treat values as array
+  // 3. Recursively find first array whose items contain the target attribute
+  function resolveSource(node, depth) {
+    if (!node || typeof node !== 'object') return null;
+    if (Array.isArray(node)) return node;
+    const keys = Object.keys(node);
+    const isNumericKeyed = keys.length > 0 && keys.every(k => /^\d+$/.test(k));
+    if (isNumericKeyed) return Object.values(node);
+    if (depth > 6) return null;
+    // Look for a nested array whose items have the target attribute
+    for (const v of Object.values(node)) {
+      if (Array.isArray(v) && v.some(item => typeof item === 'object' && item !== null && attr in item)) return v;
+    }
+    for (const v of Object.values(node)) {
+      if (typeof v === 'object' && !Array.isArray(v)) {
+        const found = resolveSource(v, depth + 1);
+        if (found) return found;
+      }
+    }
+    // Fallback: any non-empty array
+    for (const v of Object.values(node)) {
+      if (Array.isArray(v) && v.length > 0) return v;
+    }
+    return null;
+  }
+
+  const source = resolveSource(parsed, 0);
+
+  if (!source || source.length === 0) {
+    document.getElementById('filterCount').textContent = 'Pas de tableau à filtrer';
+    document.getElementById('filterCount').className = 'filter-count no-matches';
+    return;
+  }
+
+  const filtered = filterArray(source);
+  const total = source.length;
+
+  // Update count badge
+  const countEl = document.getElementById('filterCount');
+  if (filtered.length === 0) {
+    countEl.textContent = 'Aucun résultat'; countEl.className = 'filter-count no-matches';
+  } else {
+    countEl.textContent = `${filtered.length} / ${total} résultat(s)`; countEl.className = 'filter-count has-matches';
+  }
+
+  // Show results in separate panel
+  document.getElementById('filterResultsTitle').textContent =
+    `Résultats filtrés — ${attr} = "${value}" (${filtered.length} / ${total})`;
+
+  const content = document.getElementById('filterResultsContent');
+  content.innerHTML = `<pre class="res-body">${syntaxHighlight(JSON.stringify(filtered, null, 2))}</pre>`;
+
+  document.getElementById('filterResultsPanel').style.display = 'flex';
+}
+
+function closeFilterResults() {
+  document.getElementById('filterResultsPanel').style.display = 'none';
+  document.getElementById('filterAttr').value = '';
+  document.getElementById('filterVal').value = '';
+  document.getElementById('filterCount').textContent = '';
+  document.getElementById('filterCount').className = 'filter-count';
+}
+
+function clearFilter() {
+  closeFilterResults();
+}
+
+function updateFilterCount() {}
+
+// ─── SEARCH ──────────────────────────────────────────────────────────────────
+function toggleSearch() {
+  state.search.open = !state.search.open;
+  const bar = document.getElementById('resSearchBar');
+  const btn = document.getElementById('searchToggleBtn');
+  bar.style.display = state.search.open ? 'flex' : 'none';
+  btn.classList.toggle('active', state.search.open);
+  if (state.search.open) {
+    document.getElementById('resSearchInput').focus();
+    applySearch();
+  } else {
+    state.search.query = '';
+    document.getElementById('resSearchInput').value = '';
+    renderResBody();
+  }
+}
+
+function clearSearch() {
+  state.search.query = '';
+  state.search.currentIdx = 0;
+  document.getElementById('resSearchInput').value = '';
+  updateMatchCount(0, 0);
+  renderResBody();
+}
+
+function onSearchInput() {
+  state.search.query = document.getElementById('resSearchInput').value;
+  state.search.currentIdx = 0;
+  applySearch();
+}
+
+function onSearchKey(e) {
+  if (e.key === 'Enter') searchNav(e.shiftKey ? -1 : 1);
+  if (e.key === 'Escape') toggleSearch();
+}
+
+function searchNav(dir) {
+  if (!state.search.totalMatches) return;
+  state.search.currentIdx = (state.search.currentIdx + dir + state.search.totalMatches) % state.search.totalMatches;
+  applySearch(false);
+}
+
+function applySearch(resetIdx = true) {
+  if (resetIdx) state.search.currentIdx = 0;
+  const q = state.search.query;
+  if (!q || state.currentResTab !== 'body') {
+    renderResBody();
+    updateMatchCount(0, 0);
+    return;
+  }
+  renderResBodyWithSearch(q);
+}
+
+function renderResBodyWithSearch(q) {
+  if (!state.response) return;
+  const el = document.getElementById('resContent');
+  const body = state.response.body || '';
+  const ct = state.response.contentType || '';
+  el.style.padding = '12px 16px';
+
+  let text;
+  if (state.prettyMode && (ct.includes('json') || isJson(body))) {
+    try { text = JSON.stringify(JSON.parse(body), null, 2); }
+    catch(e) { text = body; }
+  } else {
+    text = body;
+  }
+
+  const escaped = esc(text);
+  const regex = new RegExp(escRegex(q), 'gi');
+  let count = 0;
+  const highlighted = escaped.replace(regex, m => {
+    const cls = count === state.search.currentIdx ? 'search-hit current' : 'search-hit';
+    count++;
+    return `<mark class="${cls}">${m}</mark>`;
+  });
+  state.search.totalMatches = count;
+  updateMatchCount(state.search.currentIdx + (count ? 1 : 0), count);
+
+  el.innerHTML = `<pre class="res-body">${highlighted}</pre>`;
+
+  const current = el.querySelector('mark.current');
+  if (current) current.scrollIntoView({ block: 'nearest' });
+}
+
+function updateMatchCount(cur, total) {
+  state.search.totalMatches = total;
+  const el = document.getElementById('matchCount');
+  if (!state.search.query) { el.textContent = ''; el.className = 'match-count'; return; }
+  if (total === 0) { el.textContent = 'Aucun résultat'; el.className = 'match-count no-matches'; }
+  else { el.textContent = `${cur} / ${total}`; el.className = 'match-count has-matches'; }
+}
+
+function escRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
 // ─── RESIZER ─────────────────────────────────────────────────────────────────
 function initResizer() {

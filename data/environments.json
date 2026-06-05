@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Recette",
+    "vars": [
+      {
+        "key": "BASE_URL",
+        "value": "https://rec-formations.cci-paris-idf.fr"
+      }
+    ]
+  },
+  {
+    "name": "Production",
+    "vars": []
+  }
+]

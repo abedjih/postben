@@ -14,7 +14,11 @@
       "Bash(docker compose up *)",
       "Bash(apt-get install *)",
       "Bash(sudo apt-get install -y libasound2)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(echo \"PID=$!\")",
+      "Bash(curl -s http://localhost:5000/api/collections)",
+      "Bash(npx playwright *)",
+      "Bash(playwright install-deps *)"
     ]
   }
 }

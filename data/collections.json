@@ -1,6 +1,7 @@
 [
   {
     "name": "Formations",
+    "environment": "Recette",
     "requests": [
       {
         "name": "GET formations",
@@ -25,7 +26,7 @@
         }
       },
       {
-        "name": "GET formations preinscription",
+        "name": "GET pr\u00e9inscription formations",
         "method": "GET",
         "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
         "headers": [
@@ -73,7 +74,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Pays",
@@ -100,7 +102,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Communes",
@@ -127,7 +130,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Civilit\u00e9s",
@@ -154,7 +158,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Langues",
@@ -181,7 +186,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Nationalit\u00e9s",
@@ -208,7 +214,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Etablissements origine",
@@ -235,7 +242,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Origines scolaires",
@@ -262,7 +270,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Ann\u00e9es",
@@ -289,7 +298,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Dipl\u00f4mes pr\u00e9par\u00e9s",
@@ -316,7 +326,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "P\u00e9riodes",
@@ -343,7 +354,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Secteurs d'activit\u00e9",
@@ -370,7 +382,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Formation d\u00e9tail",
@@ -397,7 +410,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Documents",
@@ -424,7 +438,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Formations longues sessionns",
@@ -451,7 +466,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Sites",
@@ -478,7 +494,8 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Recette"
   },
   {
     "name": "Formations courtes sessions",
@@ -505,6 +522,7 @@
           "pass": ""
         }
       }
-    ]
+    ],
+    "environment": "Production"
   }
 ]

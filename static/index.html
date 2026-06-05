@@ -41,11 +41,14 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); co
 .sidebar-item .item-status { font-size: 10px; margin-left: auto; flex-shrink: 0; }
 .sidebar-empty { text-align: center; color: var(--text3); padding: 24px 8px; font-size: 12px; }
 
-.collection-header { display: flex; align-items: center; gap: 6px; padding: 6px 10px; cursor: pointer; border-radius: 6px; color: var(--text2); font-size: 12px; font-weight: 600; }
+.collection-header { padding: 5px 10px 6px; border-radius: 6px; color: var(--text2); font-size: 12px; font-weight: 600; }
 .collection-header:hover { background: var(--bg3); color: var(--text); }
-.col-actions { margin-left: auto; display: flex; gap: 2px; opacity: 0; pointer-events: none; transition: opacity .15s; }
-.collection-header:hover .col-actions { opacity: 1; pointer-events: auto; }
-.col-action-btn { background: none; border: none; cursor: pointer; font-size: 13px; padding: 1px 4px; border-radius: 4px; color: var(--text2); line-height: 1; }
+.col-title-row { display: flex; align-items: center; gap: 6px; cursor: pointer; width: 100%; }
+.col-name { flex: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.col-name-text { word-break: break-word; }
+.col-actions-row { display: flex; gap: 1px; margin-left: auto; opacity: 0; flex-shrink: 0; transition: opacity .15s; }
+.collection-header:hover .col-actions-row { opacity: 1; }
+.col-action-btn { background: none; border: none; cursor: pointer; font-size: 12px; padding: 2px 4px; border-radius: 4px; color: var(--text3); line-height: 1; }
 .col-action-btn:hover { background: var(--border); color: var(--text); }
 .col-del-btn:hover { color: var(--red); }
 .collection-header .caret { transition: transform .15s; }
@@ -83,6 +86,10 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); co
 .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 .tab-badge { background: var(--bg3); color: var(--text2); font-size: 10px; padding: 1px 5px; border-radius: 10px; margin-left: 4px; }
 .tab-content { flex: 1; overflow: auto; padding: 12px 16px; background: var(--bg); }
+.req-panel.collapsed { height: auto !important; min-height: unset !important; }
+.req-panel.collapsed .tab-content { display: none; }
+.tab-toggle-btn { margin-left: auto; background: none; border: none; color: var(--text3); cursor: pointer; font-size: 13px; padding: 4px 10px; border-radius: 4px; transition: color .15s; }
+.tab-toggle-btn:hover { color: var(--text); }
 
 /* KEY-VALUE TABLE */
 .kv-table { width: 100%; border-collapse: collapse; }
@@ -195,8 +202,6 @@ mark.search-hit.current { background: var(--yellow); color: var(--bg); }
 .btn-confirm { background: var(--accent); border: none; color: var(--bg); font-weight: 700; }
 
 /* ENV PANEL */
-.env-bar { padding: 8px 16px; background: var(--bg2); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.env-bar label { color: var(--text2); font-size: 12px; }
 .env-select { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 5px 8px; border-radius: 6px; font-size: 12px; }
 
 /* METHOD COLORS */
@@ -216,30 +221,29 @@ mark.search-hit.current { background: var(--yellow); color: var(--bg); }
 .resizer:hover { background: var(--accent); }
 
 .env-tag { background: var(--bg3); border: 1px dashed var(--accent); color: var(--accent); padding: 1px 6px; border-radius: 4px; font-size: 11px; font-family: monospace; }
+.env-badge { background: rgba(137,180,250,0.12); border: 1px solid var(--accent2); color: var(--accent2); padding: 1px 5px; border-radius: 4px; font-size: 10px; font-family: monospace; flex-shrink: 0; }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
   <h1><span>🔌</span> WebService Tester</h1>
-  <div class="toolbar-spacer"></div>
-  <button class="btn-icon" onclick="openEnvModal()">⚙ Environnements</button>
-  <button class="btn-icon" onclick="newRequest()">+ Nouvelle requête</button>
-</div>
-
-<div class="env-bar">
-  <label>Environnement :</label>
+  <div style="width:1px;height:16px;background:var(--border);flex-shrink:0;"></div>
+  <label style="color:var(--text2);font-size:12px;white-space:nowrap;">Environnement :</label>
   <select class="env-select" id="envSelect" onchange="loadEnvVars()">
     <option value="">-- Aucun --</option>
   </select>
   <span id="envVarsHint" style="color:var(--text3);font-size:11px;"></span>
+  <div class="toolbar-spacer"></div>
+  <button class="btn-icon" onclick="openEnvModal()">⚙ Environnements</button>
+  <button class="btn-icon" onclick="newRequest()">+ Nouvelle requête</button>
 </div>
 
 <div class="main">
   <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="sidebar-tabs">
-      <div class="sidebar-tab active" onclick="showSidePanel('collections',this)">Collections</div>
+      <div class="sidebar-tab active" id="collectionsTabLabel" onclick="showSidePanel('collections',this)">Collections</div>
       <div class="sidebar-tab" onclick="showSidePanel('history',this)">Historique</div>
     </div>
     <div class="sidebar-content" id="sideContent">
@@ -263,12 +267,13 @@ mark.search-hit.current { background: var(--yellow); color: var(--bg); }
 
     <div class="panels" id="panels">
       <!-- REQUEST PANEL -->
-      <div class="req-panel" id="reqPanel" style="height:260px;">
+      <div class="req-panel collapsed" id="reqPanel" style="height:260px;">
         <div class="tabs" id="reqTabs">
           <div class="tab active" onclick="showReqTab('params',this)">Paramètres <span class="tab-badge" id="badgeParams">0</span></div>
           <div class="tab" onclick="showReqTab('headers',this)">En-têtes <span class="tab-badge" id="badgeHeaders">0</span></div>
           <div class="tab" onclick="showReqTab('body',this)">Corps</div>
           <div class="tab" onclick="showReqTab('auth',this)">Auth</div>
+          <button class="tab-toggle-btn" id="reqPanelToggle" onclick="toggleReqPanel()" title="Afficher / Masquer la requête">▼ Afficher</button>
         </div>
         <div class="tab-content" id="reqTabContent"></div>
       </div>
@@ -341,6 +346,12 @@ mark.search-hit.current { background: var(--yellow); color: var(--bg); }
       <label>Nom de la requête</label>
       <input id="saveName" placeholder="Ex: Obtenir les utilisateurs">
     </div>
+    <div class="modal-field">
+      <label>Environnement de la collection</label>
+      <select id="saveEnvTarget" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:6px;width:100%;font-size:13px;outline:none;">
+        <option value="">-- Tous les environnements --</option>
+      </select>
+    </div>
     <div class="modal-actions">
       <button class="btn-cancel" onclick="closeSaveModal()">Annuler</button>
       <button class="btn-confirm" onclick="saveRequest()">Sauvegarder</button>
@@ -368,6 +379,45 @@ mark.search-hit.current { background: var(--yellow); color: var(--bg); }
     <div class="modal-actions">
       <button class="btn-cancel" onclick="closeEnvModal()">Fermer</button>
       <button class="btn-confirm" onclick="saveEnv()">Sauvegarder</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CHANGE ENV COLLECTION -->
+<div class="modal-overlay" id="changeColEnvModal" style="display:none" onclick="if(event.target===this)closeChangeColEnvModal()">
+  <div class="modal">
+    <h3>🌍 Changer l'environnement</h3>
+    <div style="margin-bottom:14px;color:var(--text2);font-size:12px">Collection : <strong id="changeColEnvName" style="color:var(--text)"></strong></div>
+    <div class="modal-field">
+      <label>Environnement</label>
+      <select id="changeColEnv" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:6px;width:100%;font-size:13px;outline:none;">
+        <option value="">-- Tous les environnements --</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeChangeColEnvModal()">Annuler</button>
+      <button class="btn-confirm" onclick="confirmChangeCollectionEnv()">Appliquer</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DUPLICATE COLLECTION -->
+<div class="modal-overlay" id="dupColModal" style="display:none" onclick="if(event.target===this)closeDuplicateColModal()">
+  <div class="modal">
+    <h3>📋 Dupliquer la collection</h3>
+    <div class="modal-field">
+      <label>Nouveau nom</label>
+      <input id="dupColName" placeholder="Copie de..." onkeydown="if(event.key==='Enter')confirmDuplicateCollection()">
+    </div>
+    <div class="modal-field">
+      <label>Environnement cible</label>
+      <select id="dupColEnv" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:6px;width:100%;font-size:13px;outline:none;">
+        <option value="">-- Tous les environnements --</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeDuplicateColModal()">Annuler</button>
+      <button class="btn-confirm" onclick="confirmDuplicateCollection()">Dupliquer</button>
     </div>
   </div>
 </div>
@@ -737,22 +787,34 @@ function renderSidebar() {
 
 function renderCollections() {
   const el = document.getElementById('panel-collections');
-  if (!state.collections.length) { el.innerHTML = `<div class="sidebar-empty">Aucune collection<br><small>Sauvegardez des requêtes pour les retrouver ici</small></div>`; return; }
+  const activeEnvName = state.activeEnv ? state.activeEnv.name : null;
+  const visible = activeEnvName
+    ? state.collections.filter(c => !c.environment || c.environment === activeEnvName)
+    : state.collections;
+
+  if (!visible.length) {
+    el.innerHTML = activeEnvName
+      ? `<div class="sidebar-empty">Aucune collection pour "${esc(activeEnvName)}"<br><small>Sauvegardez des requêtes dans cet environnement</small></div>`
+      : `<div class="sidebar-empty">Aucune collection<br><small>Sauvegardez des requêtes pour les retrouver ici</small></div>`;
+    return;
+  }
+
   let html = '';
-  // group by collection name
   const groups = {};
-  state.collections.forEach(col => {
-    const name = col.name;
-    if (!groups[name]) groups[name] = col;
-  });
+  visible.forEach(col => { if (!groups[col.name]) groups[col.name] = col; });
   Object.entries(groups).forEach(([name, col]) => {
     html += `<div class="sidebar-section">
-      <div class="collection-header" onclick="toggleCollection(this)">
-        <span class="caret">▶</span> 📁 ${esc(name)}
-        <span class="col-actions">
-          <button class="col-action-btn" title="Renommer" onclick="event.stopPropagation();openRenameCollection('${esc(name)}')">✏</button>
-          <button class="col-action-btn col-del-btn" title="Supprimer" onclick="event.stopPropagation();deleteCollection('${esc(name)}')">🗑</button>
-        </span>
+      <div class="collection-header">
+        <div class="col-title-row" onclick="toggleCollection(this.closest('.collection-header'))">
+          <span class="caret">▶</span>
+          <span class="col-name"><span class="col-name-text">📁 ${esc(name)}</span></span>
+          <div class="col-actions-row">
+            <button class="col-action-btn" title="Changer l'environnement" data-col="${esc(name)}" onclick="event.stopPropagation();openChangeColEnvModal(this.dataset.col)">🌍</button>
+            <button class="col-action-btn" title="Dupliquer" data-col="${esc(name)}" onclick="event.stopPropagation();openDuplicateColModal(this.dataset.col)">📋</button>
+            <button class="col-action-btn" title="Renommer" data-col="${esc(name)}" onclick="event.stopPropagation();openRenameCollection(this.dataset.col)">✏</button>
+            <button class="col-action-btn col-del-btn" title="Supprimer" data-col="${esc(name)}" onclick="event.stopPropagation();deleteCollection(this.dataset.col)">🗑</button>
+          </div>
+        </div>
       </div>
       <div class="collection-requests">`;
     (col.requests||[]).forEach((req, i) => {
@@ -848,6 +910,8 @@ function openSaveModal() {
   const url = document.getElementById('urlInput').value;
   const method = document.getElementById('methodSelect').value;
   document.getElementById('saveName').value = method + ' ' + (url.split('/').pop()||url).split('?')[0];
+  const envSel = document.getElementById('saveEnvTarget');
+  if (envSel) envSel.value = state.activeEnv ? state.activeEnv.name : '';
   document.getElementById('saveModal').style.display = 'flex';
   document.getElementById('saveName').focus();
 }
@@ -863,8 +927,10 @@ async function saveRequest() {
   const name = document.getElementById('saveName').value.trim() || document.getElementById('urlInput').value;
   const method = document.getElementById('methodSelect').value;
   const url = document.getElementById('urlInput').value;
+  const envTarget = (document.getElementById('saveEnvTarget')||{}).value || '';
 
-  let col = state.collections.find(c=>c.name===colName) || { name: colName, requests: [] };
+  let col = state.collections.find(c=>c.name===colName);
+  if (!col) col = { name: colName, requests: [], environment: envTarget };
   col.requests.push({ name, method, url, headers: state.headers, params: state.params, bodyType: state.bodyType, bodyRaw: state.bodyRaw, bodyForm: state.bodyForm, auth: state.auth });
 
   await fetch('/api/collections/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(col)});
@@ -875,6 +941,8 @@ async function saveRequest() {
 
 // ─── COLLECTION RENAME / DELETE ──────────────────────────────────────────────
 let _renameColOldName = '';
+let _editingEnvOriginalName = '';
+let _dupColSourceName = '';
 
 function openRenameCollection(name) {
   _renameColOldName = name;
@@ -909,13 +977,77 @@ async function deleteCollection(name) {
   renderSidebar();
 }
 
+let _changeColEnvName = '';
+
+function openChangeColEnvModal(name) {
+  _changeColEnvName = name;
+  document.getElementById('changeColEnvName').textContent = name;
+  const col = state.collections.find(c => c.name === name);
+  const sel = document.getElementById('changeColEnv');
+  if (sel) sel.value = (col && col.environment) ? col.environment : '';
+  document.getElementById('changeColEnvModal').style.display = 'flex';
+}
+
+function closeChangeColEnvModal() {
+  document.getElementById('changeColEnvModal').style.display = 'none';
+}
+
+async function confirmChangeCollectionEnv() {
+  const col = state.collections.find(c => c.name === _changeColEnvName);
+  if (!col) { closeChangeColEnvModal(); return; }
+  col.environment = document.getElementById('changeColEnv').value;
+  await fetch('/api/collections/save', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(col)
+  });
+  await loadCollections();
+  renderSidebar();
+  closeChangeColEnvModal();
+}
+
+function openDuplicateColModal(name) {
+  _dupColSourceName = name;
+  document.getElementById('dupColName').value = 'Copie de ' + name;
+  const sel = document.getElementById('dupColEnv');
+  if (sel) sel.value = state.activeEnv ? state.activeEnv.name : '';
+  document.getElementById('dupColModal').style.display = 'flex';
+  setTimeout(() => {
+    const inp = document.getElementById('dupColName');
+    inp.focus(); inp.select();
+  }, 50);
+}
+
+function closeDuplicateColModal() {
+  document.getElementById('dupColModal').style.display = 'none';
+}
+
+async function confirmDuplicateCollection() {
+  const newName = document.getElementById('dupColName').value.trim();
+  if (!newName) { alert('Entrez un nom.'); return; }
+  const targetEnv = document.getElementById('dupColEnv').value;
+  const source = state.collections.find(c => c.name === _dupColSourceName);
+  if (!source) { closeDuplicateColModal(); return; }
+  const duplicate = JSON.parse(JSON.stringify(source));
+  duplicate.name = newName;
+  duplicate.environment = targetEnv;
+  await fetch('/api/collections/save', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(duplicate)
+  });
+  await loadCollections();
+  renderSidebar();
+  closeDuplicateColModal();
+}
+
 // ─── ENVIRONMENTS ─────────────────────────────────────────────────────────────
 async function loadEnvironments() {
   const r = await fetch('/api/environments');
   state.environments = await r.json();
-  const sel = document.getElementById('envSelect');
-  const editSel = document.getElementById('envEditSelect');
-  [sel, editSel].forEach(s => {
+  ['envSelect', 'envEditSelect', 'saveEnvTarget', 'dupColEnv', 'changeColEnv'].forEach(id => {
+    const s = document.getElementById(id);
+    if (!s) return;
     const cur = s.value;
     while (s.options.length > 1) s.remove(1);
     state.environments.forEach(e => s.add(new Option(e.name, e.name)));
@@ -928,6 +1060,13 @@ function loadEnvVars() {
   state.activeEnv = state.environments.find(e=>e.name===name)||null;
   const hint = document.getElementById('envVarsHint');
   hint.textContent = state.activeEnv ? `${(state.activeEnv.vars||[]).length} variable(s) active` : '';
+  const tabLabel = document.getElementById('collectionsTabLabel');
+  if (tabLabel) {
+    tabLabel.textContent = state.activeEnv
+      ? `Collections (${state.activeEnv.name.substring(0, 3).toUpperCase()})`
+      : 'Collections';
+  }
+  renderCollections();
 }
 
 function applyEnvVars(str) {
@@ -940,6 +1079,7 @@ function applyEnvVars(str) {
 }
 
 function openEnvModal() {
+  _editingEnvOriginalName = '';
   loadEnvironments();
   renderEnvVarsTable();
   document.getElementById('envModal').style.display = 'flex';
@@ -948,6 +1088,7 @@ function closeEnvModal() { document.getElementById('envModal').style.display = '
 
 function loadEnvForEdit() {
   const name = document.getElementById('envEditSelect').value;
+  _editingEnvOriginalName = name;
   const env = state.environments.find(e=>e.name===name);
   document.getElementById('envName').value = name || '';
   renderEnvVarsTable(env ? env.vars : []);
@@ -998,8 +1139,23 @@ async function saveEnv() {
     const k=document.getElementById(`envKey_${i}`), v=document.getElementById(`envVal_${i}`);
     if(k&&v&&k.value) vars.push({key:k.value,value:v.value});
   }
+
+  const isRename = _editingEnvOriginalName && _editingEnvOriginalName !== name;
+  const activeWasRenamed = isRename && document.getElementById('envSelect').value === _editingEnvOriginalName;
+
+  if (isRename) {
+    await fetch('/api/environments/'+encodeURIComponent(_editingEnvOriginalName),{method:'DELETE'});
+  }
+
   await fetch('/api/environments/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,vars})});
   await loadEnvironments();
+
+  if (activeWasRenamed) {
+    document.getElementById('envSelect').value = name;
+    loadEnvVars();
+  }
+
+  closeEnvModal();
 }
 
 async function deleteCurrentEnv() {
@@ -1274,6 +1430,22 @@ function updateMatchCount(cur, total) {
 }
 
 function escRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+// ─── REQ PANEL TOGGLE ────────────────────────────────────────────────────────
+let _savedReqPanelHeight = '260px';
+
+function toggleReqPanel() {
+  const panel = document.getElementById('reqPanel');
+  const btn = document.getElementById('reqPanelToggle');
+  const isCollapsed = panel.classList.toggle('collapsed');
+  if (isCollapsed) {
+    _savedReqPanelHeight = panel.style.height || '260px';
+    btn.textContent = '▼ Afficher';
+  } else {
+    panel.style.height = _savedReqPanelHeight;
+    btn.textContent = '▲ Masquer';
+  }
+}
 
 // ─── RESIZER ─────────────────────────────────────────────────────────────────
 function initResizer() {

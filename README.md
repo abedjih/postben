@@ -1,6 +1,6 @@
 # WebService Tester
 
-Outil de test de webservices avec interface graphique, similaire à Postman.
+Outil de test de webservices avec interface graphique, similaire à Postben.
 Aucune dépendance externe — fonctionne avec Python 3 stdlib uniquement.
 
 ## Prérequis
@@ -17,13 +17,13 @@ python3 --version
 
 ```bash
 git clone <url-du-repo>
-cd postman
+cd postben
 ```
 
 Ou sans git, téléchargez et décompressez l'archive, puis :
 
 ```bash
-cd postman
+cd postben
 ```
 
 C'est tout — pas de `pip install`, pas de `node_modules`.
@@ -128,7 +128,7 @@ docker stop wstester && docker rm wstester
 ## Structure du projet
 
 ```
-postman/
+postben/
 ├── app.py               # Serveur HTTP + proxy de requêtes
 ├── Dockerfile
 ├── docker-compose.yml

@@ -1,6 +1,1172 @@
 [
   {
     "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/document/candidats/documents-souhaites",
+    "status": 200,
+    "time": 541,
+    "timestamp": "2026-06-18 10:40:29",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/document/candidats/documents-souhaites",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/document/candidats/documents-souhaites",
+    "status": 200,
+    "time": 599,
+    "timestamp": "2026-06-18 08:14:24",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/document/candidats/documents-souhaites",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 531,
+    "timestamp": "2026-06-16 09:21:51",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n    \"codeCiviliteApprenant\": 1,\n    \"prenomApprenant\": \"Bernard 01\",\n    \"nomApprenant\": \"Bernard 01\",\n    \"dateNaissance\": \"02/12/1981\",\n    \"lieuNaissance\": \"Paris\",\n    \"emailAppr\": \"test@test.fr\",\n    \"tel1Appr\": \"0637123157\",\n    \"adresse1Appr\": \"Paris\",\n    \"villeAppr\": \"Paris\",\n    \"cpAppr\": \"75012\",\n    \"idPays\": \"452\",\n    \"idNationalite\": \"0\",\n    \"idDiplomeObtenu\": \"50\",\n    \"idRensParam2\": \"120\",\n    \"obsRensParam2\": \"Bernard 01\",\n    \"idEtablissementOrigine\": \"1516\",\n    \"idRensParam1\": \"123\",\n    \"idFormationSouhait1\": \"30812\",\n    \"idAnnee\": \"2\",\n    \"observation\": \"{\\\"Si vous avez deux nationalit\u00e9s, merci de pr\u00e9ciser\\\":\\\"Bernard 01\\\",\\\"En quelle ann\u00e9e souhaitez-vous int\u00e9grer FERRANDI Paris ?\\\":\\\"2\u00e8me ann\u00e9e - Temps Plein\\\",\\\"Derni\u00e8re \u00e9cole (nom, ville, code postal)\\\":\\\"Bernard 01\\\",\\\"formulaire_url\\\":\\\"http://127.0.0.1:32771/form/formulaire-de-candidature-bachel\\\"}\",\n    \"idSite\": \"25\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 421,
+    "timestamp": "2026-06-16 09:20:42",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n    \"codeCiviliteApprenant\": 1,\n    \"prenomApprenant\": \"Bernard 01\",\n    \"nomApprenant\": \"Bernard 01\",\n    \"dateNaissance\": \"02/12/1981\",\n    \"lieuNaissance\": \"Paris\",\n    \"emailAppr\": \"test@test.fr\",\n    \"tel1Appr\": \"0637123157\",\n    \"adresse1Appr\": \"Paris\",\n    \"villeAppr\": \"Paris\",\n    \"cpAppr\": \"75012\",\n    \"idPays\": \"452\",\n    \"idNationalite\": \"0\",\n    \"idDiplomeObtenu\": \"50\",\n    \"idRensParam2\": \"120\",\n    \"obsRensParam2\": \"Bernard 01\",\n    \"idEtablissementOrigine\": \"1516\",\n    \"idRensParam1\": \"123\",\n    \"idFormationSouhait1\": \"30812\",\n    \"idAnnee\": \"2\",\n    \"observation\": \"{\\\"Si vous avez deux nationalit\u00e9s, merci de pr\u00e9ciser\\\":\\\"Bernard 01\\\",\\\"En quelle ann\u00e9e souhaitez-vous int\u00e9grer FERRANDI Paris ?\\\":\\\"2\u00e8me ann\u00e9e - Temps Plein\\\",\\\"Derni\u00e8re \u00e9cole (nom, ville, code postal)\\\":\\\"Bernard 01\\\",\\\"formulaire_url\\\":\\\"http://127.0.0.1:32771/form/formulaire-de-candidature-bachel\\\"}\",\n    \"idSite\": 25\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 795,
+    "timestamp": "2026-06-16 09:19:19",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/origines-scolaires",
+    "status": 200,
+    "time": 412,
+    "timestamp": "2026-06-15 12:15:31",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/origines-scolaires",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/origines-scolaires",
+    "status": 404,
+    "time": 365,
+    "timestamp": "2026-06-15 12:15:23",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/origines-scolaires",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/origines-scolaires",
+    "status": 404,
+    "time": 319,
+    "timestamp": "2026-06-15 12:15:12",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/origines-scolaires",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/",
+    "status": 404,
+    "time": 366,
+    "timestamp": "2026-06-15 12:15:05",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 1364,
+    "timestamp": "2026-06-15 12:14:19",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+    "status": 200,
+    "time": 957,
+    "timestamp": "2026-06-12 13:53:15",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 714,
+    "timestamp": "2026-06-10 15:42:46",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"idFormationSouhait1\": \"30934\",\n  \"codeCiviliteApprenant\": 2,\n  \"prenomApprenant\": \"Test 002\",\n  \"nomApprenant\": \"Test 002\",\n  \"dateNaissance\": \"05/12/1982\",\n  \"lieuNaissance\": \"Paris\",\n  \"idNationalite\": \"0\",\n  \"emailAppr\": \"test01@test.fr\",\n  \"tel1Appr\": \"0637123154\",\n  \"adresse1Appr\": \"Paris\",\n  \"villeAppr\": \"Paris\",\n  \"cpAppr\": \"75012\",\n  \"idPays\": \"1\",\n  \"idDiplomeObtenu\": \"50\",\n  \"observation\": \"Si vous avez deux nationalit\u00e9s, merci de pr\u00e9ciser : Alg\u00e9rienne\\nEn quelle ann\u00e9e souhaitez-vous int\u00e9grer FERRANDI Paris ? : 1\u00e8re ann\u00e9e - Candidat International (sans BAC fran\u00e7ais) - Temps Plein\\nIntitul\u00e9 du dipl\u00f4me en cours (pr\u00e9cisez la sp\u00e9cialit\u00e9) : 120\\nDerni\u00e8re \u00e9cole (nom, ville, code postal) : Ecole de commerce \u00e0 paris\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 551,
+    "timestamp": "2026-06-10 15:42:38",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"idFormationSouhait1\": 30934,\n  \"codeCiviliteApprenant\": 2,\n  \"prenomApprenant\": \"Test 002\",\n  \"nomApprenant\": \"Test 002\",\n  \"dateNaissance\": \"05/12/1982\",\n  \"lieuNaissance\": \"Paris\",\n  \"idNationalite\": \"0\",\n  \"emailAppr\": \"test01@test.fr\",\n  \"tel1Appr\": \"0637123154\",\n  \"adresse1Appr\": \"Paris\",\n  \"villeAppr\": \"Paris\",\n  \"cpAppr\": \"75012\",\n  \"idPays\": \"1\",\n  \"idDiplomeObtenu\": \"50\",\n  \"observation\": \"Si vous avez deux nationalit\u00e9s, merci de pr\u00e9ciser : Alg\u00e9rienne\\nEn quelle ann\u00e9e souhaitez-vous int\u00e9grer FERRANDI Paris ? : 1\u00e8re ann\u00e9e - Candidat International (sans BAC fran\u00e7ais) - Temps Plein\\nIntitul\u00e9 du dipl\u00f4me en cours (pr\u00e9cisez la sp\u00e9cialit\u00e9) : 120\\nDerni\u00e8re \u00e9cole (nom, ville, code postal) : Ecole de commerce \u00e0 paris\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 1129,
+    "timestamp": "2026-06-10 15:42:33",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"idFormationSouhait1\": \"30934\",\n  \"codeCiviliteApprenant\": 2,\n  \"prenomApprenant\": \"Test 002\",\n  \"nomApprenant\": \"Test 002\",\n  \"dateNaissance\": \"05/12/1982\",\n  \"lieuNaissance\": \"Paris\",\n  \"idNationalite\": \"0\",\n  \"emailAppr\": \"test01@test.fr\",\n  \"tel1Appr\": \"0637123154\",\n  \"adresse1Appr\": \"Paris\",\n  \"villeAppr\": \"Paris\",\n  \"cpAppr\": \"75012\",\n  \"idPays\": \"1\",\n  \"idDiplomeObtenu\": \"50\",\n  \"observation\": \"Si vous avez deux nationalit\u00e9s, merci de pr\u00e9ciser : Alg\u00e9rienne\\nEn quelle ann\u00e9e souhaitez-vous int\u00e9grer FERRANDI Paris ? : 1\u00e8re ann\u00e9e - Candidat International (sans BAC fran\u00e7ais) - Temps Plein\\nIntitul\u00e9 du dipl\u00f4me en cours (pr\u00e9cisez la sp\u00e9cialit\u00e9) : 120\\nDerni\u00e8re \u00e9cole (nom, ville, code postal) : Ecole de commerce \u00e0 paris\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 610,
+    "timestamp": "2026-06-10 15:42:25",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"idFormationSouhait1\": \"30934\",\n  \"codeCiviliteApprenant\": \"2\",\n  \"prenomApprenant\": \"Test 002\",\n  \"nomApprenant\": \"Test 002\",\n  \"dateNaissance\": \"05/12/1982\",\n  \"lieuNaissance\": \"Paris\",\n  \"idNationalite\": \"0\",\n  \"emailAppr\": \"test01@test.fr\",\n  \"tel1Appr\": \"0637123154\",\n  \"adresse1Appr\": \"Paris\",\n  \"villeAppr\": \"Paris\",\n  \"cpAppr\": \"75012\",\n  \"idPays\": \"1\",\n  \"idDiplomeObtenu\": \"50\",\n  \"observation\": \"Si vous avez deux nationalit\u00e9s, merci de pr\u00e9ciser : Alg\u00e9rienne\\nEn quelle ann\u00e9e souhaitez-vous int\u00e9grer FERRANDI Paris ? : 1\u00e8re ann\u00e9e - Candidat International (sans BAC fran\u00e7ais) - Temps Plein\\nIntitul\u00e9 du dipl\u00f4me en cours (pr\u00e9cisez la sp\u00e9cialit\u00e9) : 120\\nDerni\u00e8re \u00e9cole (nom, ville, code postal) : Ecole de commerce \u00e0 paris\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 646,
+    "timestamp": "2026-06-10 15:39:57",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"idFormationSouhait1\": \"30934\",\n  \"codeCiviliteApprenant\": \"2\",\n  \"prenomApprenant\": \"Test 002\",\n  \"nomApprenant\": \"Test 002\",\n  \"dateNaissance\": \"05/12/1982\",\n  \"lieuNaissance\": \"Paris\",\n  \"idNationalite\": \"0\",\n  \"emailAppr\": \"test01@test.fr\",\n  \"tel1Appr\": \"0637123154\",\n  \"adresse1Appr\": \"Paris\",\n  \"villeAppr\": \"Paris\",\n  \"cpAppr\": \"75012\",\n  \"idPays\": \"1\",\n  \"idDiplomeObtenu\": \"50\",\n  \"observation\": \"Si vous avez deux nationalit\u00e9s, merci de pr\u00e9ciser : Alg\u00e9rienne\\nEn quelle ann\u00e9e souhaitez-vous int\u00e9grer FERRANDI Paris ? : 1\u00e8re ann\u00e9e - Candidat International (sans BAC fran\u00e7ais) - Temps Plein\\nIntitul\u00e9 du dipl\u00f4me en cours (pr\u00e9cisez la sp\u00e9cialit\u00e9) : 120\\nDerni\u00e8re \u00e9cole (nom, ville, code postal) : Ecole de commerce \u00e0 paris\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 863,
+    "timestamp": "2026-06-10 15:39:44",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"idFormationSouhait1\": \"30934\",\n  \"codeCiviliteApprenant\": 2,\n  \"prenomApprenant\": \"Test 002\",\n  \"nomApprenant\": \"Test 002\",\n  \"dateNaissance\": \"05/12/1982\",\n  \"lieuNaissance\": \"Paris\",\n  \"idNationalite\": \"0\",\n  \"emailAppr\": \"test01@test.fr\",\n  \"tel1Appr\": \"0637123154\",\n  \"adresse1Appr\": \"Paris\",\n  \"villeAppr\": \"Paris\",\n  \"cpAppr\": \"75012\",\n  \"idPays\": \"1\",\n  \"idDiplomeObtenu\": \"50\",\n  \"observation\": \"Si vous avez deux nationalit\u00e9s, merci de pr\u00e9ciser : Alg\u00e9rienne\\nEn quelle ann\u00e9e souhaitez-vous int\u00e9grer FERRANDI Paris ? : 1\u00e8re ann\u00e9e - Candidat International (sans BAC fran\u00e7ais) - Temps Plein\\nIntitul\u00e9 du dipl\u00f4me en cours (pr\u00e9cisez la sp\u00e9cialit\u00e9) : 120\\nDerni\u00e8re \u00e9cole (nom, ville, code postal) : Ecole de commerce \u00e0 paris\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 641,
+    "timestamp": "2026-06-10 15:39:25",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"idFormationSouhait1\": \"30934\",\n  \"codeCiviliteApprenant\": \"2\",\n  \"prenomApprenant\": \"Test 002\",\n  \"nomApprenant\": \"Test 002\",\n  \"dateNaissance\": \"05/12/1982\",\n  \"lieuNaissance\": \"Paris\",\n  \"idNationalite\": \"0\",\n  \"emailAppr\": \"test01@test.fr\",\n  \"tel1Appr\": \"0637123154\",\n  \"adresse1Appr\": \"Paris\",\n  \"villeAppr\": \"Paris\",\n  \"cpAppr\": \"75012\",\n  \"idPays\": \"1\",\n  \"idDiplomeObtenu\": \"50\",\n  \"observation\": \"Si vous avez deux nationalit\u00e9s, merci de pr\u00e9ciser : Alg\u00e9rienne\\nEn quelle ann\u00e9e souhaitez-vous int\u00e9grer FERRANDI Paris ? : 1\u00e8re ann\u00e9e - Candidat International (sans BAC fran\u00e7ais) - Temps Plein\\nIntitul\u00e9 du dipl\u00f4me en cours (pr\u00e9cisez la sp\u00e9cialit\u00e9) : 120\\nDerni\u00e8re \u00e9cole (nom, ville, code postal) : Ecole de commerce \u00e0 paris\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 567,
+    "timestamp": "2026-06-10 15:28:08",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 0,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 675,
+    "timestamp": "2026-06-10 15:28:02",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 2,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 625,
+    "timestamp": "2026-06-10 15:27:47",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/civilites",
+    "status": 200,
+    "time": 503,
+    "timestamp": "2026-06-10 15:27:21",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/civilites",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 768,
+    "timestamp": "2026-06-10 13:54:56",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"1\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 691,
+    "timestamp": "2026-06-10 13:54:25",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"24444445\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"1\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 631,
+    "timestamp": "2026-06-10 10:33:37",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"5\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 594,
+    "timestamp": "2026-06-10 10:01:19",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 500,
+    "time": 638,
+    "timestamp": "2026-06-10 10:01:04",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 754,
+    "timestamp": "2026-06-10 10:00:53",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 756,
+    "timestamp": "2026-06-10 10:00:49",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+    "status": 200,
+    "time": 951,
+    "timestamp": "2026-06-10 10:00:03",
+    "request": {
+      "method": "POST",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/pays",
+    "status": 200,
+    "time": 726,
+    "timestamp": "2026-06-10 09:56:21",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/pays",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+    "status": 200,
+    "time": 2055,
+    "timestamp": "2026-06-09 14:50:53",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+    "status": 200,
+    "time": 1863,
+    "timestamp": "2026-06-09 12:10:58",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+    "status": 200,
+    "time": 1806,
+    "timestamp": "2026-06-09 09:47:06",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/langues",
+    "status": 200,
+    "time": 554,
+    "timestamp": "2026-06-09 09:46:54",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/langues",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+    "status": 200,
+    "time": 1860,
+    "timestamp": "2026-06-09 09:14:36",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+    "status": 200,
+    "time": 897,
+    "timestamp": "2026-06-08 14:43:08",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+    "status": 200,
+    "time": 571,
+    "timestamp": "2026-06-08 14:19:30",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+    "status": 200,
+    "time": 508,
+    "timestamp": "2026-06-08 14:19:00",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+    "status": 200,
+    "time": 767,
+    "timestamp": "2026-06-08 13:52:24",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+    "status": 500,
+    "time": 431,
+    "timestamp": "2026-06-08 13:51:39",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+    "status": 200,
+    "time": 894,
+    "timestamp": "2026-06-08 10:21:05",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 904,
+    "timestamp": "2026-06-08 10:06:30",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+    "status": 500,
+    "time": 487,
+    "timestamp": "2026-06-08 10:06:20",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/annees",
+    "status": 200,
+    "time": 428,
+    "timestamp": "2026-06-08 09:26:21",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/annees",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1007,
+    "timestamp": "2026-06-08 09:19:57",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/pays",
+    "status": 200,
+    "time": 434,
+    "timestamp": "2026-06-08 09:18:12",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/pays",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1074,
+    "timestamp": "2026-06-08 09:17:44",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1070,
+    "timestamp": "2026-06-08 07:57:16",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 966,
+    "timestamp": "2026-06-05 13:58:48",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 895,
+    "timestamp": "2026-06-05 12:58:38",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
+    "status": 200,
+    "time": 497,
+    "timestamp": "2026-06-05 12:56:13",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
+    "status": 200,
+    "time": 469,
+    "timestamp": "2026-06-05 12:50:13",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 948,
+    "timestamp": "2026-06-05 12:43:59",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+    "status": 200,
+    "time": 815,
+    "timestamp": "2026-06-05 12:39:26",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+    "status": 200,
+    "time": 909,
+    "timestamp": "2026-06-05 12:38:35",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+    "status": 500,
+    "time": 501,
+    "timestamp": "2026-06-05 12:37:48",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 849,
+    "timestamp": "2026-06-05 12:27:47",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+    "status": 200,
+    "time": 1855,
+    "timestamp": "2026-06-05 10:14:14",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1092,
+    "timestamp": "2026-06-05 10:11:35",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1132,
+    "timestamp": "2026-06-05 10:01:25",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+    "status": 200,
+    "time": 1802,
+    "timestamp": "2026-06-05 09:31:26",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1040,
+    "timestamp": "2026-06-05 09:29:30",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 966,
+    "timestamp": "2026-06-05 09:25:42",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
+    "status": 200,
+    "time": 433,
+    "timestamp": "2026-06-05 09:23:14",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1117,
+    "timestamp": "2026-06-05 09:21:22",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
+    "status": 200,
+    "time": 490,
+    "timestamp": "2026-06-05 09:16:54",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-obtenus",
+    "status": 200,
+    "time": 966,
+    "timestamp": "2026-06-05 09:14:47",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-obtenus",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1074,
+    "timestamp": "2026-06-05 09:07:07",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/etablissements-origine",
+    "status": 200,
+    "time": 1167,
+    "timestamp": "2026-06-05 09:05:22",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/etablissements-origine",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1047,
+    "timestamp": "2026-06-05 08:48:56",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 1149,
+    "timestamp": "2026-06-05 08:48:32",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 917,
+    "timestamp": "2026-06-05 08:48:00",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+    "status": 500,
+    "time": 513,
+    "timestamp": "2026-06-05 08:47:30",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+    "status": 200,
+    "time": 918,
+    "timestamp": "2026-06-05 08:07:25",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+    "status": 200,
+    "time": 984,
+    "timestamp": "2026-06-05 07:58:16",
+    "request": {
+      "method": "GET",
+      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+      "headers": {
+        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
+      },
+      "body": null
+    }
+  },
+  {
+    "method": "GET",
     "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
     "status": 200,
     "time": 1471,
@@ -341,1146 +1507,6 @@
     "request": {
       "method": "GET",
       "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/",
-    "status": 404,
-    "time": 446,
-    "timestamp": "2026-06-04 15:12:04",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 999,
-    "timestamp": "2026-06-04 15:03:54",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 500,
-    "time": 530,
-    "timestamp": "2026-06-04 14:55:24",
-    "request": {
-      "method": "GET",
-      "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1803,
-    "timestamp": "2026-06-04 14:55:19",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2029/groupes",
-    "status": 500,
-    "time": 443,
-    "timestamp": "2026-06-04 14:54:33",
-    "request": {
-      "method": "GET",
-      "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2029/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2029/groupes",
-    "status": 200,
-    "time": 499,
-    "timestamp": "2026-06-04 14:54:12",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2029/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
-    "status": 200,
-    "time": 556,
-    "timestamp": "2026-06-04 14:52:24",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
-    "status": 200,
-    "time": 443,
-    "timestamp": "2026-06-04 14:42:00",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 952,
-    "timestamp": "2026-06-04 14:41:47",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1684,
-    "timestamp": "2026-06-04 14:41:32",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 500,
-    "time": 597,
-    "timestamp": "2026-06-04 14:41:16",
-    "request": {
-      "method": "GET",
-      "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1846,
-    "timestamp": "2026-06-04 14:39:32",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
-    "status": 200,
-    "time": 400,
-    "timestamp": "2026-06-04 14:34:29",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/sites",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 1074,
-    "timestamp": "2026-06-04 14:32:42",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-    "status": 200,
-    "time": 361,
-    "timestamp": "2026-06-04 13:52:56",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-    "status": 200,
-    "time": 388,
-    "timestamp": "2026-06-04 13:52:35",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 1013,
-    "timestamp": "2026-06-04 13:52:26",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 915,
-    "timestamp": "2026-06-04 13:41:44",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-    "status": 200,
-    "time": 437,
-    "timestamp": "2026-06-04 13:37:20",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 871,
-    "timestamp": "2026-06-04 13:36:17",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
-    "status": 200,
-    "time": 495,
-    "timestamp": "2026-06-04 13:29:58",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1865,
-    "timestamp": "2026-06-04 13:29:39",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1907,
-    "timestamp": "2026-06-04 13:20:31",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 986,
-    "timestamp": "2026-06-04 12:24:01",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 1036,
-    "timestamp": "2026-06-04 12:23:42",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
-    "status": 200,
-    "time": 677,
-    "timestamp": "2026-06-04 12:23:19",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/formations",
-    "status": 500,
-    "time": 565,
-    "timestamp": "2026-06-04 12:04:21",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/formations",
-    "status": 500,
-    "time": 513,
-    "timestamp": "2026-06-04 10:35:17",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI//r/v1/renseignements-parametres/formations",
-    "status": 404,
-    "time": 64,
-    "timestamp": "2026-06-04 10:35:02",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI//r/v1/renseignements-parametres/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres",
-    "status": 404,
-    "time": 437,
-    "timestamp": "2026-06-04 10:33:15",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structures",
-    "status": 404,
-    "time": 394,
-    "timestamp": "2026-06-04 10:33:07",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structures",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
-    "status": 200,
-    "time": 882,
-    "timestamp": "2026-06-04 10:32:39",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure",
-    "status": 404,
-    "time": 410,
-    "timestamp": "2026-06-04 10:32:34",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
-    "status": 200,
-    "time": 1032,
-    "timestamp": "2026-06-04 10:32:28",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-obtenus",
-    "status": 200,
-    "time": 525,
-    "timestamp": "2026-06-04 10:30:17",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-obtenus",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
-    "status": 200,
-    "time": 483,
-    "timestamp": "2026-06-04 10:03:57",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
-    "status": 200,
-    "time": 634,
-    "timestamp": "2026-06-04 09:54:37",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-obtenus",
-    "status": 200,
-    "time": 437,
-    "timestamp": "2026-06-04 09:54:07",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-obtenus",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/apprenants",
-    "status": 500,
-    "time": 586,
-    "timestamp": "2026-06-04 09:48:42",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/apprenants",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/apprenants",
-    "status": 500,
-    "time": 538,
-    "timestamp": "2026-06-04 09:48:34",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/apprenants",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/apprenants",
-    "status": 500,
-    "time": 579,
-    "timestamp": "2026-06-04 09:48:18",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/apprenants",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 1100,
-    "timestamp": "2026-06-04 08:46:38",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1791,
-    "timestamp": "2026-06-04 08:38:44",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1642,
-    "timestamp": "2026-06-04 08:29:07",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/annees",
-    "status": 200,
-    "time": 516,
-    "timestamp": "2026-06-04 08:24:38",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/annees",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1815,
-    "timestamp": "2026-06-04 08:16:34",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1795,
-    "timestamp": "2026-06-04 08:12:23",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
-    "status": 200,
-    "time": 646,
-    "timestamp": "2026-06-04 08:11:52",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 1005,
-    "timestamp": "2026-06-04 08:11:43",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/periodes",
-    "status": 200,
-    "time": 400,
-    "timestamp": "2026-06-04 08:08:43",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/periodes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 2053,
-    "timestamp": "2026-06-04 08:08:16",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 1020,
-    "timestamp": "2026-06-04 08:07:46",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/civilites",
-    "status": 200,
-    "time": 1192,
-    "timestamp": "2026-06-03 08:13:35",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/civilites",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/communes",
-    "status": 500,
-    "time": 739,
-    "timestamp": "2026-06-03 08:13:30",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/communes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1650,
-    "timestamp": "2026-06-02 12:20:20",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/pays",
-    "status": 200,
-    "time": 499,
-    "timestamp": "2026-06-02 12:19:44",
-    "request": {
-      "method": "GET",
-      "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/pays",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/pays",
-    "status": 200,
-    "time": 434,
-    "timestamp": "2026-06-02 12:19:36",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/pays",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1810,
-    "timestamp": "2026-06-02 12:19:33",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 500,
-    "time": 503,
-    "timestamp": "2026-06-02 12:19:06",
-    "request": {
-      "method": "GET",
-      "url": "https://formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 916,
-    "timestamp": "2026-06-02 10:04:42",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 1011,
-    "timestamp": "2026-06-02 09:58:15",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 927,
-    "timestamp": "2026-06-02 09:44:09",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-    "status": 200,
-    "time": 582,
-    "timestamp": "2026-06-02 09:43:05",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-    "status": 200,
-    "time": 419,
-    "timestamp": "2026-06-02 09:40:03",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 1013,
-    "timestamp": "2026-06-02 09:40:00",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-    "status": 200,
-    "time": 1056,
-    "timestamp": "2026-06-02 09:39:08",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formations",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-obtenus",
-    "status": 200,
-    "time": 444,
-    "timestamp": "2026-06-02 09:28:51",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-obtenus",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
-    "status": 500,
-    "time": 421,
-    "timestamp": "2026-06-02 08:59:07",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/secteurs-activite",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/periodes",
-    "status": 200,
-    "time": 346,
-    "timestamp": "2026-06-02 08:58:42",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/periodes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/origines-scolaires",
-    "status": 200,
-    "time": 535,
-    "timestamp": "2026-06-02 08:58:25",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/origines-scolaires",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
-    "status": 200,
-    "time": 523,
-    "timestamp": "2026-06-02 08:58:16",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/diplomes-prepares",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1956,
-    "timestamp": "2026-06-01 15:19:51",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1709,
-    "timestamp": "2026-06-01 13:58:34",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/periodes",
-    "status": 200,
-    "time": 542,
-    "timestamp": "2026-06-01 13:57:44",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/periodes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-    "status": 200,
-    "time": 1881,
-    "timestamp": "2026-06-01 13:54:14",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-longue/groupes",
-      "headers": {
-        "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
-      },
-      "body": null
-    }
-  },
-  {
-    "method": "GET",
-    "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
-    "status": 200,
-    "time": 537,
-    "timestamp": "2026-06-01 13:52:08",
-    "request": {
-      "method": "GET",
-      "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/formation-courte/21-05-2026/31-08-2026/groupes",
       "headers": {
         "X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps"
       },

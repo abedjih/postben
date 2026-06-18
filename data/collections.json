@@ -524,5 +524,89 @@
       }
     ],
     "environment": "Production"
+  },
+  {
+    "name": "Renseignements parametres",
+    "requests": [
+      {
+        "name": "GET structure",
+        "method": "GET",
+        "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/renseignements-parametres/structure/apprenant",
+        "headers": [
+          {
+            "key": "X-Auth-Token",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+            "enabled": true
+          }
+        ],
+        "params": [],
+        "bodyType": "none",
+        "bodyRaw": "",
+        "bodyForm": [],
+        "auth": {
+          "type": "bearer",
+          "token": "",
+          "user": "",
+          "pass": ""
+        }
+      }
+    ],
+    "environment": ""
+  },
+  {
+    "name": "Candidature",
+    "requests": [
+      {
+        "name": "POST candidat",
+        "method": "POST",
+        "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/preinscription/candidat",
+        "headers": [
+          {
+            "key": "X-Auth-Token",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+            "enabled": true
+          }
+        ],
+        "params": [],
+        "bodyType": "raw",
+        "bodyRaw": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}",
+        "bodyForm": [],
+        "auth": {
+          "type": "none",
+          "token": "",
+          "user": "",
+          "pass": ""
+        }
+      }
+    ],
+    "environment": ""
+  },
+  {
+    "name": "Origine scolaire",
+    "requests": [
+      {
+        "name": "GET origines-scolaires",
+        "method": "GET",
+        "url": "https://rec-formations.cci-paris-idf.fr/FERRANDI/index.php/r/v1/origines-scolaires",
+        "headers": [
+          {
+            "key": "X-Auth-Token",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1ODUyMDAsImNsdCI6IkM1MzFDNTE2LUFBRDYtNDNFNS04NDZELTc3ODBBMjZCQTEyRCJ9.ZjMfSFu7ixcY4zH6RHT_pgVKOrmVEdYhiTWmVNBOaps",
+            "enabled": true
+          }
+        ],
+        "params": [],
+        "bodyType": "raw",
+        "bodyRaw": "{\n  \"idSite\": \"25\",\n  \"codeCiviliteApprenant\": 1,\n  \"nomApprenant\": \"Bedjih\",\n  \"prenomApprenant\": \"Ben\",\n  \"idNationalite\": \"0\",\n  \"dateNaissance\": \"14/02/1981\",\n  \"adresse1Appr\": \"Roissy en brie\",\n  \"emailAppr\": \"ben.bedjih@gmail.com\",\n  \"idFormationSouhait1\": \"30746\"\n}",
+        "bodyForm": [],
+        "auth": {
+          "type": "none",
+          "token": "",
+          "user": "",
+          "pass": ""
+        }
+      }
+    ],
+    "environment": ""
   }
 ]

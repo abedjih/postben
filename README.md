@@ -80,7 +80,7 @@ tail -f logs.txt
 ### Prérequis
 
 - [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/) (inclus avec Docker Desktop)
+- [Docker Compose](https://docs.docker.com/compose/install/) (inclus avec Docker Engine sur Linux/WSL2, ou Docker Desktop sur Windows/Mac)
 
 ### Lancement avec Docker Compose (recommandé)
 
